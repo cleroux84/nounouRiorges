@@ -11,9 +11,10 @@
 {% for listeUser in listeUsers %}
 <div class="card" style="width: 18rem;">
   <div class="card-body">
-    <h5 class="card-title">{{listeUser.email}}</h5>
-    <p class="card-text">{{listeUser.username}}</p>
-    <a href="#" class="btn btn-primary">{{ listeUser.name }}</a>
+    <h5 class="card-title">{{listeUser.nom}}</h5>
+    <p class="card-text">{{listeUser.prenom}}</p>
+    <p class="btn btn-primary">{{ listeUser.ville }}</p>
+    <button>Bouton</button>
   </div>
 </div>
 {% endfor %}
