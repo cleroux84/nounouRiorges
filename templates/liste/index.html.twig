@@ -14,9 +14,17 @@
     <h5 class="card-title">{{listeUser.nom}}</h5>
     <p class="card-text">{{listeUser.prenom}}</p>
     <p class="btn btn-primary">{{ listeUser.ville }}</p>
-    <button>Bouton</button>
+    <a class="btn btn-md primary border waves-effect waves-dark" href="{{ path('home', {'id': listeUser.id}) }}">Details</a>
   </div>
 </div>
 {% endfor %}
+ <div class="card">
+    <img class="card-img-top photoIdentite" src="assets/images/photoExemple.jpg" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+    </div>
+  </div>
 
 {% endblock %}

@@ -1,0 +1,27 @@
+.imageAccueil{
+    height: 400px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* .logoRiorges{
+    align-items: right;
+} */
+.contentLogin{
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+}
+
+
+
+.formLogin{
+    width: 500px;
+    height: 300px;
+    margin: auto;
+}
+
+.photoIdentite{
+    width: 10%;
+}
