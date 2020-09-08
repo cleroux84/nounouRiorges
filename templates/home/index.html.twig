@@ -4,6 +4,13 @@
 
 {% block body %}
 
+<div class="container">
+
+ {% if app.user %}
+ <a href="{{ path('profils_show', {'id': userId}) }}"><button type="button" class="btn btn-outline-dark btn-lg" >Voir mon profil</button></a>
+ {% endif %}
 <img src="assets/images/main.jpg" class="imageAccueil img-fluid" alt="Responsive image">
 
+
+</div>
 {% endblock %}

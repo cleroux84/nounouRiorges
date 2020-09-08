@@ -21,7 +21,12 @@
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav">
                     <a class="nav-item nav-link active" href="{{ path('home') }}">Home <span class="sr-only">(current)</span></a>
+                    {% if not app.user %}
                     <a class="nav-item nav-link" href="{{ path('security_registration') }}">Inscription</a>
+                     {% else %}
+                    <a class="nav-item nav-link" disabled>Inscription</a>
+                    {% endif %}
+
                     <a class="nav-item nav-link" href="{{ path('liste') }}">Accès à la liste</a>
 
                     {% if not app.user %}

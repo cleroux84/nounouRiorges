@@ -1,0 +1,89 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Profils index{% endblock %}
+
+{% block body %}
+    <h1>Profils index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Ville</th>
+                <th>Email</th>
+                <th>NumeroRueAdresse</th>
+                <th>Code_postal</th>
+                <th>ComplementAdresse</th>
+                <th>VilleAdresse</th>
+                <th>Telephone</th>
+                <th>PresentationText</th>
+                <th>Animaux</th>
+                <th>Photo1</th>
+                <th>Photo2</th>
+                <th>Photo3</th>
+                <th>Photo4</th>
+                <th>PhotoIdentite</th>
+                <th>AgrementDate</th>
+                <th>PlaceDispo</th>
+                <th>TarifHoraire</th>
+                <th>TarifEntretien</th>
+                <th>Experience</th>
+                <th>Horaires</th>
+                <th>FormationPremierSecours</th>
+                <th>Bafa</th>
+                <th>FormationPetiteEnfance</th>
+                <th>PermisConduire</th>
+                <th>Vehicule</th>
+                <th>LanguesParlees</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for profil in profils %}
+            <tr>
+                <td>{{ profil.id }}</td>
+                <td>{{ profil.Nom }}</td>
+                <td>{{ profil.Prenom }}</td>
+                <td>{{ profil.ville }}</td>
+                <td>{{ profil.email }}</td>
+                <td>{{ profil.NumeroRueAdresse }}</td>
+                <td>{{ profil.codePostal }}</td>
+                <td>{{ profil.complementAdresse }}</td>
+                <td>{{ profil.villeAdresse }}</td>
+                <td>{{ profil.telephone }}</td>
+                <td>{{ profil.presentationText }}</td>
+                <td>{{ profil.Animaux }}</td>
+                <td>{{ profil.photo1 }}</td>
+                <td>{{ profil.photo2 }}</td>
+                <td>{{ profil.photo3 }}</td>
+                <td>{{ profil.photo4 }}</td>
+                <td>{{ profil.photoIdentite }}</td>
+                <td>{{ profil.AgrementDate ? profil.AgrementDate|date('Y-m-d') : '' }}</td>
+                <td>{{ profil.placeDispo }}</td>
+                <td>{{ profil.tarifHoraire }}</td>
+                <td>{{ profil.tarifEntretien }}</td>
+                <td>{{ profil.experience }}</td>
+                <td>{{ profil.horaires }}</td>
+                <td>{{ profil.formationPremierSecours }}</td>
+                <td>{{ profil.bafa }}</td>
+                <td>{{ profil.formationPetiteEnfance }}</td>
+                <td>{{ profil.permisConduire }}</td>
+                <td>{{ profil.vehicule }}</td>
+                <td>{{ profil.languesParlees }}</td>
+                <td>
+                    <a href="{{ path('profils_show', {'id': profil.id}) }}">show</a>
+                    <a href="{{ path('profils_edit', {'id': profil.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="30">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('profils_new') }}">Create new</a>
+{% endblock %}

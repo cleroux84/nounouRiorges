@@ -1,0 +1,134 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Profils{% endblock %}
+
+{% block body %}
+    <h1>Profils</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ profilId }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ profil.Nom }}</td>
+            </tr>
+            <tr>
+                <th>Prenom</th>
+                <td>{{ profil.Prenom }}</td>
+            </tr>
+            <tr>
+                <th>Ville</th>
+                <td>{{ profil.ville }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ profil.email }}</td>
+            </tr>
+            <tr>
+                <th>NumeroRueAdresse</th>
+                <td>{{ profil.NumeroRueAdresse }}</td>
+            </tr>
+            <tr>
+                <th>Code_postal</th>
+                <td>{{ profil.codePostal }}</td>
+            </tr>
+            <tr>
+                <th>ComplementAdresse</th>
+                <td>{{ profil.complementAdresse }}</td>
+            </tr>
+            <tr>
+                <th>VilleAdresse</th>
+                <td>{{ profil.villeAdresse }}</td>
+            </tr>
+            <tr>
+                <th>Telephone</th>
+                <td>{{ profil.telephone }}</td>
+            </tr>
+            <tr>
+                <th>PresentationText</th>
+                <td>{{ profil.presentationText }}</td>
+            </tr>
+            <tr>
+                <th>Animaux</th>
+                <td>{{ profil.Animaux }}</td>
+            </tr>
+            <tr>
+                <th>Photo1</th>
+                <td>{{ profil.photo1 }}</td>
+            </tr>
+            <tr>
+                <th>Photo2</th>
+                <td>{{ profil.photo2 }}</td>
+            </tr>
+            <tr>
+                <th>Photo3</th>
+                <td>{{ profil.photo3 }}</td>
+            </tr>
+            <tr>
+                <th>Photo4</th>
+                <td>{{ profil.photo4 }}</td>
+            </tr>
+            <tr>
+                <th>PhotoIdentite</th>
+                <td>{{ profil.photoIdentite }}</td>
+            </tr>
+            <tr>
+                <th>AgrementDate</th>
+                <td>{{ profil.AgrementDate ? profil.AgrementDate|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>PlaceDispo</th>
+                <td>{{ profil.placeDispo }}</td>
+            </tr>
+            <tr>
+                <th>TarifHoraire</th>
+                <td>{{ profil.tarifHoraire }}</td>
+            </tr>
+            <tr>
+                <th>TarifEntretien</th>
+                <td>{{ profil.tarifEntretien }}</td>
+            </tr>
+            <tr>
+                <th>Experience</th>
+                <td>{{ profil.experience }}</td>
+            </tr>
+            <tr>
+                <th>Horaires</th>
+                <td>{{ profil.horaires }}</td>
+            </tr>
+            <tr>
+                <th>FormationPremierSecours</th>
+                <td>{{ profil.formationPremierSecours }}</td>
+            </tr>
+            <tr>
+                <th>Bafa</th>
+                <td>{{ profil.bafa }}</td>
+            </tr>
+            <tr>
+                <th>FormationPetiteEnfance</th>
+                <td>{{ profil.formationPetiteEnfance }}</td>
+            </tr>
+            <tr>
+                <th>PermisConduire</th>
+                <td>{{ profil.permisConduire }}</td>
+            </tr>
+            <tr>
+                <th>Vehicule</th>
+                <td>{{ profil.vehicule }}</td>
+            </tr>
+            <tr>
+                <th>LanguesParlees</th>
+                <td>{{ profil.languesParlees }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('profils_index') }}">back to list</a>
+
+    <a href="{{ path('profils_edit', {'id': profil.id}) }}">edit</a>
+
+    {{ include('profils/_delete_form.html.twig') }}
+{% endblock %}

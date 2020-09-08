@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Profils;
 use App\Entity\User;
 use App\Form\RegistrationType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -19,6 +20,7 @@ class SecurityController extends AbstractController
     public function registration(Request $request, EntityManagerInterface $manager, UserPasswordEncoderInterface $encoder) {
         $user = new User();
       /*   var_dump($user); */
+        $profil= new Profils;
 
         $form = $this->createForm(RegistrationType::class, $user);
 
@@ -27,8 +29,18 @@ class SecurityController extends AbstractController
            
             $hash = $encoder->encodePassword($user, $user->getPassword());
             $user->setPassword($hash);
+           
+            
             $manager->persist($user);
+            $manager->flush(); 
+            $email = $user->getEmail();
+            $nom= $user->getUsername();
+            $profil-> setEmail($email);
+            $profil->setUser($user);
+            $profil->setNom($nom);
+            $manager->persist($profil);
             $manager->flush();
+
             return $this->redirectToRoute('security_login');
         }
 

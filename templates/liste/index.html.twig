@@ -14,7 +14,7 @@
     <h5 class="card-title">{{listeUser.nom}}</h5>
     <p class="card-text">{{listeUser.prenom}}</p>
     <p class="btn btn-primary">{{ listeUser.ville }}</p>
-    <a class="btn btn-md primary border waves-effect waves-dark" href="{{ path('home', {'id': listeUser.id}) }}">Details</a>
+    <a class="btn btn-md primary border waves-effect waves-dark" href="{{ path('profils_show', {'id': listeUser.id}) }}">Details</a>
   </div>
 </div>
 {% endfor %}
