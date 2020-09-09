@@ -1,134 +1,152 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Profils{% endblock %}
 
+    
+{% block title %}Profil de {{profil.Prenom}} {% endblock %}
+    
+  
 {% block body %}
-    <h1>Profils</h1>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ profilId }}</td>
-            </tr>
-            <tr>
-                <th>Nom</th>
-                <td>{{ profil.Nom }}</td>
-            </tr>
-            <tr>
-                <th>Prenom</th>
-                <td>{{ profil.Prenom }}</td>
-            </tr>
-            <tr>
-                <th>Ville</th>
-                <td>{{ profil.ville }}</td>
-            </tr>
-            <tr>
-                <th>Email</th>
-                <td>{{ profil.email }}</td>
-            </tr>
-            <tr>
-                <th>NumeroRueAdresse</th>
-                <td>{{ profil.NumeroRueAdresse }}</td>
-            </tr>
-            <tr>
-                <th>Code_postal</th>
-                <td>{{ profil.codePostal }}</td>
-            </tr>
-            <tr>
-                <th>ComplementAdresse</th>
-                <td>{{ profil.complementAdresse }}</td>
-            </tr>
-            <tr>
-                <th>VilleAdresse</th>
-                <td>{{ profil.villeAdresse }}</td>
-            </tr>
-            <tr>
-                <th>Telephone</th>
-                <td>{{ profil.telephone }}</td>
-            </tr>
-            <tr>
-                <th>PresentationText</th>
-                <td>{{ profil.presentationText }}</td>
-            </tr>
-            <tr>
-                <th>Animaux</th>
-                <td>{{ profil.Animaux }}</td>
-            </tr>
-            <tr>
-                <th>Photo1</th>
-                <td>{{ profil.photo1 }}</td>
-            </tr>
-            <tr>
-                <th>Photo2</th>
-                <td>{{ profil.photo2 }}</td>
-            </tr>
-            <tr>
-                <th>Photo3</th>
-                <td>{{ profil.photo3 }}</td>
-            </tr>
-            <tr>
-                <th>Photo4</th>
-                <td>{{ profil.photo4 }}</td>
-            </tr>
-            <tr>
-                <th>PhotoIdentite</th>
-                <td>{{ profil.photoIdentite }}</td>
-            </tr>
-            <tr>
-                <th>AgrementDate</th>
-                <td>{{ profil.AgrementDate ? profil.AgrementDate|date('Y-m-d') : '' }}</td>
-            </tr>
-            <tr>
-                <th>PlaceDispo</th>
-                <td>{{ profil.placeDispo }}</td>
-            </tr>
-            <tr>
-                <th>TarifHoraire</th>
-                <td>{{ profil.tarifHoraire }}</td>
-            </tr>
-            <tr>
-                <th>TarifEntretien</th>
-                <td>{{ profil.tarifEntretien }}</td>
-            </tr>
-            <tr>
-                <th>Experience</th>
-                <td>{{ profil.experience }}</td>
-            </tr>
-            <tr>
-                <th>Horaires</th>
-                <td>{{ profil.horaires }}</td>
-            </tr>
-            <tr>
-                <th>FormationPremierSecours</th>
-                <td>{{ profil.formationPremierSecours }}</td>
-            </tr>
-            <tr>
-                <th>Bafa</th>
-                <td>{{ profil.bafa }}</td>
-            </tr>
-            <tr>
-                <th>FormationPetiteEnfance</th>
-                <td>{{ profil.formationPetiteEnfance }}</td>
-            </tr>
-            <tr>
-                <th>PermisConduire</th>
-                <td>{{ profil.permisConduire }}</td>
-            </tr>
-            <tr>
-                <th>Vehicule</th>
-                <td>{{ profil.vehicule }}</td>
-            </tr>
-            <tr>
-                <th>LanguesParlees</th>
-                <td>{{ profil.languesParlees }}</td>
-            </tr>
-        </tbody>
-    </table>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h1>Profil de {{profil.Prenom}} </h1>
+        </div>
+        <div class="col">
+        {% if userId == profilId %}
+            <button type="button" class="btn btn-outline-dark btn-lg">
+                <a href="{{ path('profils_edit', {'id': profil.id}) }}">Modifier mon profil</a>
+            </button>
+            {{ include('profils/_delete_form.html.twig') }}
+        {% endif %}
+        <button type="button" class="btn btn-outline-dark btn-lg">
+            <a href="{{ path('liste') }}">Retour à la liste</a>
+        </button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-5">
+            <div class="profilPixContent">
+            {% if not profil.photoIdentite  %}
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="../assets/images/profilBlanc.png" alt="Card image cap">
+                </div>
+            {% else %}
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="{{ profil.photoIdentite }}" alt="Card image cap">
+                </div>
+            {% endif %}
+            </div>
+        </div>
+        <div class="col-7 coordonneesContent">
+            <div class="nomPrenomContent">
+                Nom - Prénom : {{ profil.Nom }} - {{ profil.Prenom }}
+            </div>
+            <div class="adresseProfil">
+                Adresse :   {{ profil.NumeroRueAdresse }}<br />
+                            {{ profil.complementAdresse }}<br />
+                            {{ profil.codePostal }} -
+                            {{ profil.villeAdresse }}
+            </div>
+            <div>
+                Me joindre par téléphone : {{ profil.telephone }} <br />
+            </div>
 
-    <a href="{{ path('profils_index') }}">back to list</a>
+             <div>
+                Horaires: {{ profil.horaires }}
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-5">
+        </div>
+        <div class="col-7">
+            <div class="presentationContent">
+            Présentation :
+                {{ profil.presentationText }} 
+            </div>
+        </div>
+    </div>
+    <div class="diversContent row">
+        <div class="col-3">
+            Agrément : {{ profil.AgrementDate ? profil.AgrementDate|date('Y-m-d') : '' }}
+        </div>
+        <div class="col-3">
+            Nombre de place disponible: {{ profil.placeDispo }}
+        </div>
+        <div class="col-3">
+            Tarif : {{ profil.tarifHoraire }} €/heure
+        </div>
+        <div class="col-3">
+            Tarif entretien : {{ profil.tarifEntretien }} €/jour
+        </div>
+    </div>
+     <div class="diversContent row">
+        <div class="col-3">
+            Formation petite enfance : {{ profil.formationPetiteEnfance }}
+        </div>
+        <div class="col-3">
+            Formation premier secours: {{ profil.formationPremierSecours }}
+        </div>
+        <div class="col-3">
+            BAFA : {{ profil.bafa }}
+        </div>
+        <div class="col-3">
+            Permis de conduire : {{ profil.permisConduire }}
+        </div>
+    </div>
+    <div class="diversContent row">
+        <div class="col-3">
+            Animaux : {{ profil.Animaux }}
+        </div>
+         <div class="col-3">
+            Langues parlées : {{ profil.languesParlees }}
+        </div>       
+        <div class="col-3">
+            Expériences : {{ profil.experience }} années
+        </div>
+        <div class="col-3">
+            Véhiculé : {{ profil.vehicule }}
+        </div>
+    </div>
 
-    <a href="{{ path('profils_edit', {'id': profil.id}) }}">edit</a>
 
-    {{ include('profils/_delete_form.html.twig') }}
+
+    <div class="carouselContentAll">
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+  <ol class="carousel-indicators">
+    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+  </ol>
+  <div class="carousel-inner testCar">
+    <div class="carouselContent carousel-item active">
+      <img class="d-block w-100" src="{{profil.photo4}}" alt="First slide">
+    </div>
+    <div class="carouselContent carousel-item">
+      <img class="d-block w-100" src="{{profil.photo1}}" alt="Second slide">
+    </div>
+    <div class="carouselContent carousel-item">
+      <img class="d-block w-100" src="{{profil.photo2}}" alt="Third slide">
+    </div>
+    <div class="carouselContent carousel-item">
+      <img class="d-block w-100" src="{{profil.photo3}}" alt="Third slide">
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+    </div>
+
+
+    
+</div>
+
 {% endblock %}

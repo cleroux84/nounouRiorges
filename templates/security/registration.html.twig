@@ -1,11 +1,37 @@
 {% extends 'base.html.twig' %}
 
 {% block body%}
+      
+<div class="container formInscription">
     <h1>Inscription</h1>
+    {{ form_start(form, {'method':'POST'}) }}
+    <div class="form-row">
+        <div class="form-group col-md-6">
+        {{form_label(form.email, 'Entrez votre mail', { 'attr': {'class': 'foo'} }) }}
+        {{ form_widget(form.email, {'attr': {'class': "form-control", 'placeholder': "Mail"}}) }}
+        </div>
+        <div class="form-group col-md-6">
+        {{form_label(form.username, 'Entrez votre nom', { 'attr': {'class': 'foo'} }) }}
+        {{ form_widget(form.username, {'attr': {'class': "form-control", 'placeholder': "Nom"}}) }}
+        </div>
+    </div>
+    <div class="form-row">
+         <div class="form-group col-md-6">
+        {{form_label(form.password, 'Entrez votre mot de passe', { 'attr': {'class': 'foo'} }) }}
+        {{ form_widget(form.password, {'attr': {'class': "form-control", 'placeholder': "Mot de passe"}}) }}
 
-    {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button type="submit" class="btn btn-success">Inscription ! </button>
-    {{ form_end(form) }}
+        </div>
+         <div class="form-group col-md-6">
+        {{form_label(form.confirm_Password, 'Confirmez votre mot de passe', { 'attr': {'class': 'foo'} }) }}
+        {{ form_widget(form.confirm_Password, {'attr': {'class': "form-control", 'placeholder': "Mot de passe"}}) }}
+        </div>
+    </div>
+    <button type="submit" class="btn btn-dark">Valider</button>
+    
+</div>
+</div>
+    {{ form_end(form) }} 
+
 
 {% endblock %}
+
