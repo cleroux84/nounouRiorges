@@ -81,9 +81,9 @@ class ProfilsController extends AbstractController
      */
     public function show(User $user, Profils $profil): Response
     {
-        $profilId = $profil->getUser()->getId();
-        $userId = $this->get('security.token_storage')->getToken()->getUser()->getId();
-        
+        $profilId = $profil->getUser();
+
+        $userId = $this->get('security.token_storage')->getToken()->getUser();
    
         return $this->render('profils/show.html.twig', [
             'profilId' => $profilId,

@@ -101,23 +101,27 @@
             {{ form_widget(form.vehicule, {'attr': {'class': "form-control"}}) }}
         </div>
     </div> 
+
      <div class="form-row">
         <div class="form-group col-md-3">
-            {{form_label(form.photoIdentite, 'Ajoutez une photo de profil', { 'attr': {'class': 'foo'} }) }}
+        <div class="custom-file">
+            {{form_label(form.photoIdentite, 'Ajoutez une photo de profil')}}
             {{ form_widget(form.photoIdentite) }}
+</div>
+           
         </div>
     </div>
-   {#  <div class="form-row">
-        <div class="form-group col-md-3">
-            {{form_label(form.photo1, 'Ajoutez une jusqu\'à 4 photos de votre environnement, extérieurs, maison, ...', { 'attr': {'class': 'foo'} }) }}
-            {{ form_widget(form.photo1, {'attr': {'class': "form-control"}}) }}
-            {{ form_widget(form.photo2, {'attr': {'class': "form-control"}}) }}
-            {{ form_widget(form.photo3, {'attr': {'class': "form-control"}}) }}
-            {{ form_widget(form.photo4, {'attr': {'class': "form-control"}}) }}
+    <div class="form-row">
+        <div class="form-group col-md-8">         
+            {{form_label(form.photo1, 'Ajoutez une jusqu\'à 4 photos de votre environnement, extérieurs, chambre, cuisine...', { 'attr': {'class': 'foo'} }) }}
+            {{ form_widget(form.photo1) }}
+            {{ form_widget(form.photo2) }}
+            {{ form_widget(form.photo3) }}
+            {{ form_widget(form.photo4) }}
         </div>
-    </div> #}
+    </div> 
 
-   <button class="btn">{{ button_label|default('Save') }}</button>
+   <button type="button" class="btn btn-dark">{{ button_label|default('Save') }}</button>
 
   {{ form_end(form) }}
 </form> 

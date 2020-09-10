@@ -57,7 +57,7 @@ class Profils
     private $villeAdresse;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $telephone;
 
@@ -67,7 +67,7 @@ class Profils
     private $presentationText;
 
     /**
-     * @ORM\Column(type="binary", nullable=true)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $Animaux;
 
@@ -107,12 +107,12 @@ class Profils
     private $placeDispo;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $tarifHoraire;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $tarifEntretien;
 
@@ -122,27 +122,27 @@ class Profils
     private $horaires;
 
     /**
-     * @ORM\Column(type="binary", nullable=true)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $formationPremierSecours;
 
     /**
-     * @ORM\Column(type="binary", nullable=true)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $bafa;
 
     /**
-     * @ORM\Column(type="binary", nullable=true)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $formationPetiteEnfance;
 
     /**
-     * @ORM\Column(type="binary", nullable=true)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $permisConduire;
 
     /**
-     * @ORM\Column(type="binary", nullable=true)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $vehicule;
 

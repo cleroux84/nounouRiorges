@@ -13,11 +13,13 @@
             <h1>Profil de {{profil.Prenom}} </h1>
         </div>
         <div class="col">
-        {% if userId == profilId %}
-            <button type="button" class="btn btn-outline-dark btn-lg">
-                <a href="{{ path('profils_edit', {'id': profil.id}) }}">Modifier mon profil</a>
-            </button>
-            {{ include('profils/_delete_form.html.twig') }}
+        {% if app.user %}
+            {% if userId == profilId  %}
+                <button type="button" class="btn btn-outline-dark btn-lg">
+                    <a href="{{ path('profils_edit', {'id': profil.id}) }}">Modifier mon profil</a>
+                </button>
+                {{ include('profils/_delete_form.html.twig') }}
+            {% endif %}
         {% endif %}
         <button type="button" class="btn btn-outline-dark btn-lg">
             <a href="{{ path('liste') }}">Retour à la liste</a>
@@ -69,7 +71,7 @@
     </div>
     <div class="diversContent row">
         <div class="col-3">
-            Agrément : {{ profil.AgrementDate ? profil.AgrementDate|date('Y-m-d') : '' }}
+            Date de fin d'agrément : {{ profil.AgrementDate ? profil.AgrementDate|date('d-m-Y') : '' }}
         </div>
         <div class="col-3">
             Nombre de place disponible: {{ profil.placeDispo }}
@@ -143,8 +145,6 @@
 </div>
     </div>
 
-
-    
 </div>
 
 {% endblock %}

@@ -11,9 +11,7 @@ use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Validator\Constraints\File;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
-
-
-
+use Symfony\Component\Form\Extension\Core\Type\MoneyType;
 
 class ProfilsType extends AbstractType
 {
@@ -22,7 +20,6 @@ class ProfilsType extends AbstractType
         $builder
             ->add('Nom')
             ->add('Prenom')
-           /*  ->add('email') */
             ->add('NumeroRueAdresse')
             ->add('code_postal')
             ->add('complementAdresse')
@@ -126,7 +123,15 @@ class ProfilsType extends AbstractType
                 'widget' => 'single_text',
                 'required' => false,
             ])
-            ->add('placeDispo')
+            ->add('placeDispo', ChoiceType::class, [
+                'choices' => [
+                    '1' => '1',
+                    '2' => '2',
+                    '3' => '3',
+                    '4' => '4',
+                    '5' => '5',
+            ],        
+            ])
             ->add('tarifHoraire')
             ->add('tarifEntretien')
             ->add('experience', ChoiceType::class, [
