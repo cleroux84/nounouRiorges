@@ -9,13 +9,40 @@ use App\Repository\ProfilsRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\String\Slugger\SluggerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Symfony\Component\HttpFoundation\File\Exception\FileException;
+
 
 /**
  * @Route("/profils")
  */
 class ProfilsController extends AbstractController
 {
+
+    /**
+     * 
+     */
+    private function saveUploadFile(UploadedFile $file, string $directory, SluggerInterface $slugger)
+    {
+        $originalFilename = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME);
+        $safeFilename = $slugger->slug($originalFilename);
+        $newFilename = $safeFilename.'-'.uniqid().'.'.$file->guessExtension();
+
+        try {
+            $file->move(
+                $directory,
+                $newFilename
+            );
+        } catch (FileException $e) {
+            $newFilename = 'error file upload';
+        }
+
+        return $newFilename;
+    }
+
+   
     /**
      * @Route("/", name="profils_index", methods={"GET","POST"})
      */
@@ -69,23 +96,81 @@ class ProfilsController extends AbstractController
     /**
      * @Route("/{id}/edit", name="profils_edit", methods={"GET","POST"})
      */
-    public function edit(Request $request, Profils $profil): Response
+    public function edit(Request $request, Profils $profil, SluggerInterface $slugger): Response
     {
         $form = $this->createForm(ProfilsType::class, $profil);
-        $form->handleRequest($request);
+        $form->handleRequest($request);  
 
         if ($form->isSubmitted() && $form->isValid()) {
+           /** @var UploadedFile $file */
+           $file = $form->get('photoIdentite')->getData();
+           if ($file){
+               $newFilename = $this->saveUploadFile(
+                   $file, 
+                   $this->getParameter('upload_directory'),
+                   $slugger
+               );
+               $profil->setPhotoIdentite($newFilename);
+           }
+           $file1 = $form->get('photo1')->getData();
+           if ($file1){
+               $newFilename = $this->saveUploadFile(
+                   $file1, 
+                   $this->getParameter('upload_directory'),
+                   $slugger
+               );
+               $profil->setPhoto1($newFilename);
+           }
+           $file2 = $form->get('photo2')->getData();
+           if ($file2){
+               $newFilename = $this->saveUploadFile(
+                   $file2, 
+                   $this->getParameter('upload_directory'),
+                   $slugger
+               );
+               $profil->setPhoto2($newFilename);
+           }
+           $file3 = $form->get('photo3')->getData();
+           if ($file3){
+               $newFilename = $this->saveUploadFile(
+                   $file3, 
+                   $this->getParameter('upload_directory'),
+                   $slugger
+               );
+               $profil->setPhoto3($newFilename);
+           }
+           $file4 = $form->get('photo4')->getData();
+           if ($file4){
+               $newFilename = $this->saveUploadFile(
+                   $file4, 
+                   $this->getParameter('upload_directory'),
+                   $slugger
+               );
+               $profil->setPhoto4($newFilename);
+           }
+           
+           
+           
+           
+            /* ../assets/images/photoExemple.jpg */
+           
+            /* dd($originalFilename); */  
+
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('profils_index');
         }
+        
 
         return $this->render('profils/edit.html.twig', [
             'profil' => $profil,
             'form' => $form->createView(),
         ]);
     }
-
+            public function getTargetDirectory()
+            {
+                return $this->targetDirectory;
+            }
     /**
      * @Route("/{id}", name="profils_delete", methods={"DELETE"})
      */

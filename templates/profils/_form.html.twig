@@ -1,4 +1,125 @@
-{{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
-{{ form_end(form) }}
+<div class="container">
+    {{ form_start(form) }}
+   <div class="form-row">
+        <div class="form-group col-md-4">
+            {{form_label(form.Nom, 'Votre nom', { 'attr': {'class': 'foo'} }) }}
+            {{ form_widget(form.Nom, {'attr': {'class': "form-control", 'placeholder': "Nom"}}) }}
+        </div>
+        <div class="form-group col-md-4">
+            {{form_label(form.Prenom, 'Votre prénom', { 'attr': {'class': 'foo'} }) }}
+            {{ form_widget(form.Prenom, {'attr': {'class': "form-control", 'placeholder': "Prenom"}}) }}
+        </div>
+        <div class="form-group col-md-2">
+            {{form_label(form.telephone, 'Téléphone', { 'attr': {'class': 'foo'} }) }}
+            {{ form_widget(form.telephone, {'attr': {'class': "form-control", 'placeholder': "Téléphone"}}) }}
+        </div>
+
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-4">
+            {{form_label(form.NumeroRueAdresse, 'Votre adresse', { 'attr': {'class': 'foo'} }) }}
+            {{ form_widget(form.NumeroRueAdresse, {'attr': {'class': "form-control", 'placeholder': "Numéro et rue"}}) }}
+        </div>
+        <div class="form-group col-md-4">
+            {{form_label(form.complementAdresse, 'Complément', { 'attr': {'class': 'foo'} }) }}
+            {{ form_widget(form.complementAdresse, {'attr': {'class': "form-control", 'placeholder': "lieu-dit, étage..."}}) }}
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-4">
+            {{form_label(form.code_postal, 'Code Postal', { 'attr': {'class': 'foo'} }) }}
+            {{ form_widget(form.code_postal, {'attr': {'class': "form-control", 'placeholder': "CP"}}) }}
+        </div>
+            <div class="form-group col-md-4">
+            {{form_label(form.villeAdresse, 'Ville', { 'attr': {'class': 'foo'} }) }}
+            {{ form_widget(form.villeAdresse, {'attr': {'class': "form-control", 'placeholder': "Ville"}}) }}
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-8">
+            {{form_label(form.presentationText, 'Votre présentation', { 'attr': {'class': 'foo'} }) }}
+            {{ form_widget(form.presentationText, {'attr': {'class': "form-control", 'placeholder': "Quelques mots ..."}}) }}
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-3">
+            {{form_label(form.formationPetiteEnfance, 'Possédez-vous une Formation Petite Enfance ? ', { 'attr': {'class': 'foo'} }) }}
+            {{ form_widget(form.formationPetiteEnfance, {'attr': {'class': "form-control"}}) }}
+        </div>
+         <div class="form-group col-md-3">
+            {{form_label(form.bafa, 'Possédez-vous le Brevet d\'Aptitude aux Fonctions d\'Animateur (BAFA) ? ', { 'attr': {'class': 'foo'} }) }}
+            {{ form_widget(form.bafa, {'attr': {'class': "form-control"}}) }}
+        </div>
+        <div class="form-group col-md-3">
+            {{form_label(form.formationPremierSecours, 'Possédez-vous la Formation aux Premiers Secours ?', { 'attr': {'class': 'foo'} }) }}
+            {{ form_widget(form.formationPremierSecours, {'attr': {'class': "form-control"}}) }}
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-3">
+            {{form_label(form.AgrementDate, 'La date de fin de votre agrément en cours : ', { 'attr': {'class': 'foo'} }) }}
+            {{ form_widget(form.AgrementDate, {'attr': {'class': "form-control"}}) }}
+        </div>
+        <div class="form-group col-md-3">
+            {{form_label(form.placeDispo, 'Nombre de place disponible actuellement : ', { 'attr': {'class': 'foo'} }) }}
+            {{ form_widget(form.placeDispo, {'attr': {'class': "form-control"}}) }}
+        </div>
+        <div class="form-group col-md-3">
+            {{form_label(form.tarifHoraire, 'Indiquez ici vos tarifs appliqués à l\'heure : ', { 'attr': {'class': 'foo'} }) }}
+            {{ form_widget(form.tarifHoraire, {'attr': {'class': "form-control"}}) }}
+        </div>
+        <div class="form-group col-md-3">
+            {{form_label(form.tarifEntretien, 'Indiquez ici vos tarifs journaliers d\'entretien : ', { 'attr': {'class': 'foo'} }) }}
+            {{ form_widget(form.tarifEntretien, {'attr': {'class': "form-control"}}) }}
+        </div>
+    </div>
+    <div class="form-row">
+          <div class="form-group col-md-3">
+            {{form_label(form.horaires, 'Indiquez vos horaires : ', { 'attr': {'class': 'foo'} }) }}
+            {{ form_widget(form.horaires, {'attr': {'class': "form-control"}}) }}
+        </div>
+        <div class="form-group col-md-3">
+            {{form_label(form.Animaux, 'Possédez-vous des animaux ? ', { 'attr': {'class': 'foo'} }) }}
+            {{ form_widget(form.Animaux, {'attr': {'class': "form-control"}}) }}
+        </div>
+        <div class="form-group col-md-3">
+            {{form_label(form.experience, 'Votre expérience de garde d\'enfant : ', { 'attr': {'class': 'foo'} }) }}
+            {{ form_widget(form.experience, {'attr': {'class': "form-control"}}) }}
+        </div>
+        <div class="form-group col-md-3">
+            {{form_label(form.languesParlees, 'Quelles langues parlez-vous ?', { 'attr': {'class': 'foo'} }) }}
+            {{ form_widget(form.languesParlees, {'attr': {'class': "form-control"}}) }}
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-3">
+            {{form_label(form.permisConduire, 'Possédez-vous le permis ?', { 'attr': {'class': 'foo'} }) }}
+            {{ form_widget(form.permisConduire, {'attr': {'class': "form-control"}}) }}
+        </div>
+        <div class="form-group col-md-3">
+            {{form_label(form.vehicule, 'Etes-vous véhiculé ? ', { 'attr': {'class': 'foo'} }) }}
+            {{ form_widget(form.vehicule, {'attr': {'class': "form-control"}}) }}
+        </div>
+    </div> 
+     <div class="form-row">
+        <div class="form-group col-md-3">
+            {{form_label(form.photoIdentite, 'Ajoutez une photo de profil', { 'attr': {'class': 'foo'} }) }}
+            {{ form_widget(form.photoIdentite) }}
+        </div>
+    </div>
+   {#  <div class="form-row">
+        <div class="form-group col-md-3">
+            {{form_label(form.photo1, 'Ajoutez une jusqu\'à 4 photos de votre environnement, extérieurs, maison, ...', { 'attr': {'class': 'foo'} }) }}
+            {{ form_widget(form.photo1, {'attr': {'class': "form-control"}}) }}
+            {{ form_widget(form.photo2, {'attr': {'class': "form-control"}}) }}
+            {{ form_widget(form.photo3, {'attr': {'class': "form-control"}}) }}
+            {{ form_widget(form.photo4, {'attr': {'class': "form-control"}}) }}
+        </div>
+    </div> #}
+
+   <button class="btn">{{ button_label|default('Save') }}</button>
+
+  {{ form_end(form) }}
+</form> 
+
+</div>

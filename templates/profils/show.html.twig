@@ -33,7 +33,7 @@
                 </div>
             {% else %}
                 <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="{{ profil.photoIdentite }}" alt="Card image cap">
+                    <img class="card-img-top" src="{{ asset('uploads/' ~ profil.photoIdentite) }}" />
                 </div>
             {% endif %}
             </div>
@@ -110,8 +110,6 @@
         </div>
     </div>
 
-
-
     <div class="carouselContentAll">
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
   <ol class="carousel-indicators">
@@ -122,16 +120,16 @@
   </ol>
   <div class="carousel-inner testCar">
     <div class="carouselContent carousel-item active">
-      <img class="d-block w-100" src="{{profil.photo4}}" alt="First slide">
+      <img class="d-block w-100" src="{{ asset('uploads/' ~ profil.photo1) }}" alt="First slide">
     </div>
     <div class="carouselContent carousel-item">
-      <img class="d-block w-100" src="{{profil.photo1}}" alt="Second slide">
+      <img class="d-block w-100" src="{{ asset('uploads/' ~ profil.photo2) }}" alt="Second slide">
     </div>
     <div class="carouselContent carousel-item">
-      <img class="d-block w-100" src="{{profil.photo2}}" alt="Third slide">
+      <img class="d-block w-100" src="{{ asset('uploads/' ~ profil.photo3) }}" alt="Third slide">
     </div>
     <div class="carouselContent carousel-item">
-      <img class="d-block w-100" src="{{profil.photo3}}" alt="Third slide">
+      <img class="d-block w-100" src="{{ asset('uploads/' ~ profil.photo4) }}" alt="Fourth slide">
     </div>
   </div>
   <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">

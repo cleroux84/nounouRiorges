@@ -26,12 +26,6 @@ class Profils
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $Prenom;
-
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private $ville;
-
     /**
      * @ORM\OneToOne(targetEntity=User::class, cascade={"persist", "remove"})
      */
@@ -123,11 +117,6 @@ class Profils
     private $tarifEntretien;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
-     */
-    private $experience;
-
-    /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $horaires;
@@ -162,6 +151,11 @@ class Profils
      */
     private $languesParlees;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $experience;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -191,19 +185,7 @@ class Profils
         return $this;
     }
 
-    public function getVille(): ?string
-    {
-        return $this->ville;
-    }
-
-    public function setVille(string $ville): self
-    {
-        $this->ville = $ville;
-
-        return $this;
-    }
-
-    public function getUser(): ?User
+       public function getUser(): ?User
     {
         return $this->user;
     }
@@ -419,18 +401,6 @@ class Profils
         return $this;
     }
 
-    public function getExperience(): ?int
-    {
-        return $this->experience;
-    }
-
-    public function setExperience(?int $experience): self
-    {
-        $this->experience = $experience;
-
-        return $this;
-    }
-
     public function getHoraires(): ?string
     {
         return $this->horaires;
@@ -511,6 +481,18 @@ class Profils
     public function setLanguesParlees(?string $languesParlees): self
     {
         $this->languesParlees = $languesParlees;
+
+        return $this;
+    }
+
+    public function getExperience(): ?string
+    {
+        return $this->experience;
+    }
+
+    public function setExperience(?string $experience): self
+    {
+        $this->experience = $experience;
 
         return $this;
     }
