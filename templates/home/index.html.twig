@@ -1,16 +1,45 @@
-{% extends 'base.html.twig' %}
-
-{% block title %}Hello HomeController!{% endblock %}
-
+ <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+                    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        <link href="/assets/css/index.css" rel="stylesheet">
+         <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.0/animate.min.css"
+        />
 {% block body %}
 
-<div class="container">
-
- {% if app.user %}
- <a href="{{ path('profils_show', {'id': userId}) }}"><button type="button" class="btn btn-outline-dark btn-lg" >Voir mon profil</button></a>
- {% endif %}
-<img src="assets/images/main.jpg" class="imageAccueil img-fluid" alt="Responsive image">
-
-
+    {% if app.user %}
+    <div class="container">
+        <a href="{{ path('profils_show', {'id': userId}) }}"><button type="button" class="btn btn-outline-dark btn-lg btn-block" >Voir mon profil</button></a>
+    </div>
+    {% endif %}
+   {#  <div>
+        <img src="assets/images/main.jpg" class="imageAccueil img-fluid" alt="Responsive image">
+    </div> #}
+<div class="container-fluid">
+ 
+    <div class="row homeContainer">
+        <div class="col-6 homeParentContent">
+            <div class="homeParentText">
+            <div>
+                <p class="test">Je suis parent, je recheche une assistante maternelle : </p>
+            </div>
+            </div>
+                <a href="{{ path('liste') }}"><button type="button" class="btn btn-outline-secondary">Liste des assistantes Maternelles</button></a>
+        </div>
+        <div class="col-6 homeNounouContent">
+            <div class="row">
+                <p>Je suis assistante maternelle : </p>
+            </div>
+            <div class="row">
+                <div class="col-4">
+                    <a href="{{ path('security_registration') }}"><button type="button" class="btn btn-outline-secondary">Inscription</button></a>
+                </div>
+                <div class="col-4">
+                    <a href="{{ path('security_login') }}"><button type="button" class="btn btn-outline-secondary">Connexion</button></a>
+                </div>
+            </div>
+        </div>
+     </div>
+  
 </div>
 {% endblock %}

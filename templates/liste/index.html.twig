@@ -4,24 +4,35 @@
 
 {% block body %}
 
-
+<div class="container">
+  <div class="row">
 {% for listeUser in listeUsers %}
-<div class="card" style="width: 18rem;">
-  <div class="card-body">
-    <h5 class="card-title">{{listeUser.nom}}</h5>
-    <p class="card-text">{{listeUser.prenom}}</p>
-    <p class="btn btn-primary">{{ listeUser.email }}</p>
-    <a class="btn btn-md primary border waves-effect waves-dark" href="{{ path('profils_show', {'id': listeUser.id}) }}">Details</a>
+    <div class="col-5 listCol">
+      <div class="card cardListe">
+        <div class="row">
+            <div class="col">
+        {% if not listeUser.photoIdentite %}
+            <img class="card-img-top photoListe" src="../assets/images/profilBlanc.png" alt="Card image cap">
+        {% else %}
+            <img class="card-img-top photoListe" src="{{ asset('uploads/' ~ listeUser.photoIdentite)}}" alt="Card image cap">
+        {% endif %}
+          </div>
+          <div class="col">
+           
+              <h5 class="card-title">{{listeUser.nom}} {{listeUser.prenom}} </h5>
+              <p>Place(s) disponible(s) : {{listeUser.placeDispo}} </p>
+              <p>Lieu de garde : {{listeUser.villeAdresse}}</p>
+              <p>Horaires : {{listeUser.horaires}} </p>
+              <p>Expérience : {{listeUser.experience}} </p>
+           
+          </div>
+        </div>
+        <div class="card-body">
+          <a class="btn btn-md primary border waves-effect waves-dark" href="{{ path('profils_show', {'id': listeUser.id}) }}">Voir le profil de {{listeUser.Prenom}}</a>
+        </div>
+      </div>
+    </div>
+{% endfor %}
   </div>
 </div>
-{% endfor %}
- <div class="card">
-    <img class="card-img-top photoIdentite" src="assets/images/photoExemple.jpg" alt="Card image cap">
-    <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-    </div>
-  </div>
-
 {% endblock %}

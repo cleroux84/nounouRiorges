@@ -1,3 +1,11 @@
+@font-face {
+    font-family: 'OpenSansCondensed';
+    src: url('../fonts/OpenSansCondensed-Light.ttf');
+}
+body {
+    font-family:"OpenSansCondensed";
+   }
+
 .imageAccueil{
     height: 400px;
     display: block;
@@ -5,16 +13,38 @@
     margin-right: auto;
 }
 
-/* .logoRiorges{
-    align-items: right;
-} */
+.homeContainer{
+    margin-top: -40px;
+}
+
+.homeParentContent{
+    margin-top: 40px;
+    background-image: url("../images/famille.jpg") ;
+    padding: 20px;
+    height: 600px;
+    opacity: 0.2;
+}
+
+.homeParentContent:hover{
+    opacity: 1;
+}
+
+.homeNounouContent{
+    margin-top: 40px;
+    background-image: url("../images/nounnou.jpg") ;
+    padding: 20px;
+    opacity: 0.2;
+}
+.homeNounouContent:hover{
+    opacity: 1;
+}
+
+
 .contentLogin{
     display: flex;
     flex-direction: column;
     margin: auto;
 }
-
-
 
 .formLogin{
     width: 500px;
@@ -51,6 +81,18 @@
 
 .carouselContent{
     width: 500px;
- 
+}
 
+.listCol{
+    margin: 20px;
+}
+
+.cardListe{
+    padding: 15px;
+    width: 475px;
+    height: 330px;
+}
+
+.photoListe{
+    width: 50%;
 }
