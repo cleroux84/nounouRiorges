@@ -14,7 +14,7 @@ class HomeController extends AbstractController
     public function index()
     {
         $user = $this->get('security.token_storage')->getToken()->getUser();
-
+        
         if($user === "anon."){
             return $this->render('home/index.html.twig', [
                 'controller_name' => 'HomeController',
@@ -22,10 +22,12 @@ class HomeController extends AbstractController
         }
 else{
         $userId = $user->getId();
-
+        $userMail = $user->getEmail();
+        
         return $this->render('home/index.html.twig', [
             'controller_name' => 'HomeController',
-            'userId' => $userId
+            'userId' => $userId,
+            'userMail' => $userMail,
         ]);
     }
 }

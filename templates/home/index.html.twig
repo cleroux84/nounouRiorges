@@ -5,37 +5,70 @@
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.0/animate.min.css"
         />
-{% block body %}
 
+
+
+{% block body %}
     {% if app.user %}
-    <div class="container">
-        <a href="{{ path('profils_show', {'id': userId}) }}"><button type="button" class="btn btn-outline-dark btn-lg btn-block" >Voir mon profil</button></a>
+    <div class="container-fluid">
+        <div class='row ifLoggedContent'>
+            <div class="col-3">
+                <div class="row">
+                    <svg width="3em" height="3em" viewBox="0 0 16 16" class="bi bi-person-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                    </svg>
+                    <p class="identificationMail"> {{ userMail }}</p>
+                </div>
+            </div>
+            <div class="col-3">
+                 <div class="buttons">
+                    <div class="container">
+                            <a href="{{ path('profils_show', {'id': userId}) }}" class="btn effect01"><span>Voir mon profil</span></a>
+                    </div>
+                </div>
+            </div>
+             <div class="col-3">
+               <div class="buttons">
+                    <div class="container">
+                            <a href="{{ path('security_logout') }}" class="btn effect01"><span>Me déconnecter</span></a>
+                    </div>
+                </div>  
+            </div>
+        </div>
     </div>
     {% endif %}
-   {#  <div>
-        <img src="assets/images/main.jpg" class="imageAccueil img-fluid" alt="Responsive image">
-    </div> #}
-<div class="container-fluid">
+
+    <div class="container-fluid">
  
     <div class="row homeContainer">
         <div class="col-6 homeParentContent">
             <div class="homeParentText">
-            <div>
-                <p class="test">Je suis parent, je recheche une assistante maternelle : </p>
-            </div>
-            </div>
-                <a href="{{ path('liste') }}"><button type="button" class="btn btn-outline-secondary">Liste des assistantes Maternelles</button></a>
+                <p class="homeTextP">Je suis parent, je recheche une assistante maternelle </p>
+                <div class="buttons">
+                    <div class="container">
+                        <a href="{{ path('liste') }}" class="btn effect01"><span>Cliquez ici !</span></a>
+                    </div>
+                </div>
+            </div>        
         </div>
         <div class="col-6 homeNounouContent">
-            <div class="row">
-                <p>Je suis assistante maternelle : </p>
+            <div class="row homeParentText">
+                <p class="homeTextnounouP">Je suis assistante maternelle</p>
             </div>
             <div class="row">
-                <div class="col-4">
-                    <a href="{{ path('security_registration') }}"><button type="button" class="btn btn-outline-secondary">Inscription</button></a>
+                <div class="col-6 homeButtonsNounou">
+                    <div class="buttons">
+                        <div class="container">
+                            <a href="{{ path('security_registration') }}" class="btn effect01"><span>Inscription</span></a>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-4">
-                    <a href="{{ path('security_login') }}"><button type="button" class="btn btn-outline-secondary">Connexion</button></a>
+                <div class="col-6 homeButtonsNounou">
+                    <div class="buttons">
+                        <div class="container">
+                            <a href="{{ path('security_login') }}" class="btn effect01"><span>Connexion</span></a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
