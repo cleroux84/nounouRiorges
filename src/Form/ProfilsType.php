@@ -125,6 +125,7 @@ class ProfilsType extends AbstractType
             ])
             ->add('placeDispo', ChoiceType::class, [
                 'choices' => [
+                    '0' => '0',
                     '1' => '1',
                     '2' => '2',
                     '3' => '3',

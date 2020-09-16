@@ -128,10 +128,10 @@ body {
     transition: all 0.2s ease-out;
     z-index: 2;
   }
-  .effect01:hover span{
+/*   .effect01:hover span{
     letter-spacing: 0.13em;
     color: #333;
-  }
+  } */
   
   /*highlight*/
   .effect01:after {
@@ -195,19 +195,47 @@ body {
     border-radius: 2%;
 }
 
-/* .coordonneesContent{
-    
-
-} */
+.coordonneesContent{
+    display: flex;
+    margin-top: 5%;
+} 
 
 .presentationContent{
+    margin: 10%;
     width: 600px;
-    height: 300px;
+    height: 300px;    
     
+}
+.presentationText{
+    font-size: 110%;
+    font-style: italic;
+    text-align: justify;
+}
+.profilPixContent{
+    margin-top: 10%;
+}
+
+.presentationRow{
+    margin-bottom: -10%;
+}
+
+.telHoraire{
+    font-size: 120%;
+}
+
+.nomPrenomContent{
+    font-size: 300%;
+}
+.adresseProfil{
+    font-size: 120%;
 }
 
 .diversContent{
     height: 100px;
+}
+
+.iconeProfil{
+    margin-right: 5%;
 }
 
 
@@ -261,7 +289,7 @@ body {
     position: absolute;
     width: 150px;
     height: 100%;
-    background: linear-gradient(#4daead, #7daca9);
+    background: linear-gradient(#b5bebe, #cee6e4);
     transition: width 0.4s;
     overflow: hidden;
     z-index: 2;
@@ -301,8 +329,7 @@ body {
     text-transform: uppercase;
     font-size: 0.75em;
     font-weight: bold;
-    background: rgba(0,0,0,0.15);
-    padding: 0.125rem 0.75rem;
+     /*  padding: 0.125rem 0.75rem; */
     border-radius: 100px;
     white-space: nowrap;
 }
@@ -328,7 +355,7 @@ body {
 }
 
 .card .additional .more-info h1 {
-    color: #000941;
+    color: #00020c;
     margin-bottom: 0;
 }
 
@@ -336,7 +363,7 @@ body {
 
 .card .additional .coords {
     margin: 0 1rem;
-    color: #000941;
+    color: #00020c;
     font-size: 1rem;
 }
 
@@ -354,7 +381,7 @@ body {
     left: 1rem;
     right: 1rem;
     top: auto;
-    color: #000941;
+    color: #00020c;
 }
 
 
@@ -404,3 +431,76 @@ body {
     font-size: 0.9em;
 }
 
+.buttonListeDetail{
+    position: absolute;
+    margin-top: 170px;
+}
+
+.cardContentList{
+    margin-top: 30px;
+}
+
+/* profil */
+.photoShowProfil{
+    object-fit: cover;
+    width: auto;
+    height: 300px;
+}
+
+/* tableau  */
+
+/*	
+	Side Navigation Menu V2, RWD
+	===================
+	Author: @heyPablete
+
+ */
+
+
+.tableContent {
+  line-height: 3em;
+  color: black;
+  margin-bottom: 10%;
+}
+
+.container td, .container th {
+	  padding-bottom: 2%;
+	  padding-top: 2%;
+      padding-left:2%;  
+}
+
+/* Background-color of the odd rows */
+.container tr:nth-child(odd) {
+	  background-color: #f8f8f8;
+}
+
+/* Background-color of the even rows */
+.container tr:nth-child(even) {
+	  background-color: #b5bebe;
+}
+
+.container tr:hover {
+   background-color: #808989;
+-webkit-box-shadow: 0 6px 6px -6px #0E1119;
+	   -moz-box-shadow: 0 6px 6px -6px #0E1119;
+	        box-shadow: 0 6px 6px -6px #0E1119;
+}
+
+.container td:hover {
+  background-color: #324b4b;
+  color: white;
+  font-weight: bold;
+  
+  box-shadow: #C0C6C6 -1px 1px, #C0C6C6 -2px 2px, #C0C6C6 -3px 3px, #C0C6C6 -4px 4px, #C0C6C6 -5px 5px, #C0C6C6 -6px 6px;
+  transform: translate3d(6px, -6px, 0);
+  
+    transition-delay: 0s;
+    transition-duration: 0.4s;
+	transition-property: all;
+    transition-timing-function: line;
+}
+
+@media (max-width: 800px) {
+.container td:nth-child(4),
+.container th:nth-child(4) { display: none; }
+}

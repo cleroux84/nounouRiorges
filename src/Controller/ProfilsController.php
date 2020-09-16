@@ -171,6 +171,7 @@ class ProfilsController extends AbstractController
             {
                 return $this->targetDirectory;
             }
+            
     /**
      * @Route("/{id}", name="profils_delete", methods={"DELETE"})
      */
