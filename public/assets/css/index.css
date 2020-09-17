@@ -250,6 +250,7 @@ body {
 
 .carouselContent{
     width: 500px;
+    height: 500px;
 }
 
 .listCol{
@@ -456,6 +457,44 @@ body {
     height: 300px;
 }
 
+
+.carousel-item.active{
+    display: flex;
+    justify-content: center;
+  /*   object-fit: cover;
+    width:285px;
+    height:100%; */
+
+}
+.d-block{
+    height: 450px;
+    width: auto;
+}
+
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+     height: 100px;
+     width: 100px;
+     outline: black;
+}
+
+.carousel-control-next-icon:after
+{
+     content: '>';
+     font-size: 100px;
+     color: #b5bebe;
+}
+
+.carousel-control-prev-icon:after {
+     content: '<';
+     font-size: 100px;
+     color: #b5bebe;
+}
+
+
+
+
 /* tableau  */
 
 /*	
@@ -470,6 +509,7 @@ body {
   line-height: 3em;
   color: black;
   margin-bottom: 10%;
+  
 }
 
 .tableContent td, .tableContent th {
@@ -498,8 +538,9 @@ body {
 .tableContent td:hover {
   background-color: #324b4b;
   color: white;
+  font-size: 20px;
   font-weight: bold;
-  
+    
   box-shadow: #C0C6C6 -1px 1px, #C0C6C6 -2px 2px, #C0C6C6 -3px 3px, #C0C6C6 -4px 4px, #C0C6C6 -5px 5px, #C0C6C6 -6px 6px;
   transform: translate3d(6px, -6px, 0);
   
