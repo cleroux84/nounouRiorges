@@ -15,12 +15,36 @@ body {
     font-family:"OpenSansCondensed";
    }
 
-.imageAccueil{
+/* navbar */
+.nav-link{
+    font-size: larger;
+} 
+
+.nav-item{
+    color: white;
+
+}
+.navbarBase{
+    background-color: #b5bebe;
+}
+
+
+.logoNounou{
+   
+    width: 300px;
+    margin-top: -50px;
+    margin-bottom: -100px;
+}
+.animate__animated.animate__backOutRight {
+    --animate-duration: 8s;
+  }
+
+/* .imageAccueil{
     height: 400px;
     display: block;
     margin-left: auto;
     margin-right: auto;
-}
+} */
 
 .ifLoggedContent{
     margin-top: 20px;
@@ -32,6 +56,8 @@ body {
 }
 
 .homeContainer{
+    display: flex;
+    justify-content: center;
     margin-top: -40px;
 }
 .homeParentText{
@@ -40,10 +66,23 @@ body {
     flex-direction: column;
     padding: 20px;
 }
+.homeNounouText{
+    display: flex;
+    margin-top: 300px;
+    flex-direction: column;
+    padding: 20px;
+}
+/* .homeParentText:hover{
+
+    transform: matrix(1, 2, 3, 4, 5, 6);
+} */
+
 .homeParentContent{
     margin-top: 40px;
+    
     background-image: url("../images/famille.jpg") ;
     background-repeat: no-repeat;
+    background-size: 100%;
     padding: 20px;
     height: 600px;
     opacity: 0.2; 
@@ -76,11 +115,33 @@ body {
     color: white;
     font-family: "OpenSansCondensedBold";
 }
-/* 
-.containerContentLogin{
-    max-width:none; 
-} */
 
+.containerContentLogin{
+    margin-top: 30px; 
+}
+
+.textPlaceListe{
+    font-size: 17px;
+}
+
+.photoDownload{
+    font-weight: bold;
+}
+
+.modifProfilContent{
+    margin-bottom: -450px;
+}
+.titleModifProfil{
+    font-size: 30px;
+    margin-top: 50px;
+    margin-bottom: 30px;
+    padding-left: 30px;
+}
+
+.photoSearch{
+    margin-top: 25px;
+    font-weight: bold;
+}
 
 .buttons {
     display: flex;
@@ -167,6 +228,7 @@ body {
     margin-top: 40px;
     background-image: url("../images/nounnou.jpg") ;
     background-repeat: no-repeat;
+    background-size: 100%;
     padding: 20px;
     opacity: 0.2;
 }
@@ -202,6 +264,11 @@ body {
     border: 1px solid rgb(209, 206, 206);
     padding: 20px;
     border-radius: 2%;
+    margin-top: 20px;
+}
+
+.titleConnexion{
+    font-size: 30px;
 }
 
 .coordonneesContent{
@@ -252,7 +319,10 @@ body {
     width: 500px;
     height: 500px;
 }
+.carousel-inner{
+    margin-bottom: 30px;
 
+}
 .listCol{
     margin: 20px;
 }
@@ -431,7 +501,6 @@ body {
     box-sizing: border-box;
     padding: 1rem;
     padding-top: 0;
-
 }
 
 .card .general .more {
@@ -439,6 +508,10 @@ body {
     bottom: 1rem;
     right: 1rem;
     font-size: 0.9em;
+}
+
+.generalTitle{
+    color: black;
 }
 
 .buttonListeDetail{
@@ -553,4 +626,238 @@ body {
 @media (max-width: 800px) {
 .tableContent td:nth-child(4),
 .tableContent th:nth-child(4) { display: none; }
+}
+
+  
+  .svg-wrapper {
+    height: 60px;
+      margin: 0 auto;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 320px;
+  }
+  
+  .shape {
+    fill: transparent;
+    stroke-dasharray: 140 540;
+    stroke-dashoffset: -474;
+    stroke-width: 8px;
+    stroke: #19f6e8;
+  }
+  
+  .text {
+    color: #fff;
+    font-family: 'Roboto Condensed';
+    font-size: 22px;
+    letter-spacing: 8px;
+    line-height: 32px;
+    position: relative;
+    top: -48px;
+  }
+  
+  @keyframes draw {
+    0% {
+      stroke-dasharray: 140 540;
+      stroke-dashoffset: -474;
+      stroke-width: 8px;
+    }
+    100% {
+      stroke-dasharray: 760;
+      stroke-dashoffset: 0;
+      stroke-width: 2px;
+    }
+  }
+  
+  .svg-wrapper:hover .shape {
+    -webkit-animation: 0.5s draw linear forwards;
+    animation: 0.5s draw linear forwards;
+  }
+
+  /* footer */
+  footer {
+    margin-top: 40px;
+    background-color: #b5bebe;
+    font-family: "Lato", sans-serif;
+    padding: 85px 0 285px 0; 
+    height: 100px;
+}
+
+.footer-inner {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 120px;
+    /* max-width: 1170px; */
+    position: relative;
+}
+
+.footer-item {
+    float: left;
+    margin: 0 5.0% 0 0;
+}
+
+.footer-item:nth-of-type(4) {
+    display: none;
+}
+
+.footer-item:nth-of-type(7) {
+    float: right;
+    margin-right: 0;
+}
+
+.footer-button {
+    color: black;
+    position: relative;
+    font-weight: 400;
+    font-size: 16px;
+    transition: 1s;
+    transition-delay: .2s;
+    padding: 14px;
+}
+  
+.footer-button:after {
+    content: "";
+    position: absolute;
+    top: 45px;
+    right: 13px;
+    background-color: white;
+    height: 1px;
+    width: 86px;
+    transition: .6s;
+}
+  
+.footer-button:hover {
+    color: black;
+    background-color: white;
+}
+  
+.footer-button:hover:after {
+    width: 112px;
+    right: 0px;
+}
+
+  
+h2 {
+    font-weight: 300;
+    line-height: 1.8;
+    font-size: 16px;
+    color: black;
+    letter-spacing: 0.03em;
+    padding: 15px 0 0 0;
+}
+  
+.color {
+    color: white;
+    font-weight: 400;
+}
+  
+h3 {
+    font-weight: 400;
+    font-size: 13px;
+    color: white;
+    margin: 0;
+    letter-spacing: 0.03em;
+}
+
+h3.desktop {
+    padding-top: 30px;
+}
+  
+ul {
+    line-height: 1.8;
+    list-style-type: none;
+    padding: 0;
+}
+  
+li {
+    font-weight: 300;
+    font-size: 13px;
+    color: #d1d1d1;
+    letter-spacing: 0.03em;
+}
+  
+p {
+    font-weight: 300;
+    font-size: 13px;
+    padding: 0;
+    line-height: 1.8;
+    letter-spacing: 0.03em;
+}
+  
+a {
+    text-decoration: none;
+    color: #d1d1d1;
+}
+  
+a:hover {
+    color: white;
+}
+  
+.desktop {
+    display: auto;
+}
+
+/* .footer-inner:after {
+    content: "© 2020 Certif Dev Web";
+    font-weight: 300;
+    letter-spacing: 0.03em;
+    font-size: 13px;
+    color: #d1d1d1;
+    position: absolute;
+    top: 260px;
+    clear: both;
+    display: block;
+} */
+
+@media (max-width: 1024px) {
+  
+footer {
+    padding: 50px 0 70px 0 !important;
+}
+
+.footer-inner {
+    border-bottom: 1px solid #333;
+    padding-bottom: 490px;
+    margin-bottom: 50px;
+}
+
+.footer-item {
+    margin: 0 0 22px 0;
+    width: 50%;
+}
+
+.footer-item:nth-of-type(1) {
+    border-bottom: 1px solid #333;
+    padding-bottom: 32px;
+    float: none;
+    width: 100%;
+}
+
+.footer-item:nth-of-type(2) {
+    clear: both;
+}
+
+.footer-item:nth-of-type(4) {
+    clear: both;
+    display: block;
+}
+
+.footer-item:nth-of-type(6) {
+    clear: both;
+}
+
+.footer-item:nth-of-type(7) {
+    clear: both;
+    float: left;
+    margin: 20px 0 0 -13px;
+}
+
+.desktop {
+    display: none;
+}
+
+.footer-inner:after {
+    top: 730px;
+}
 }

@@ -257,12 +257,12 @@ class Profils
         return $this;
     }
 
-    public function getTelephone(): ?int
+    public function getTelephone(): ?string
     {
         return $this->telephone;
     }
 
-    public function setTelephone(?int $telephone): self
+    public function setTelephone(?string $telephone): self
     {
         $this->telephone = $telephone;
 
@@ -377,24 +377,24 @@ class Profils
         return $this;
     }
 
-    public function getTarifHoraire(): ?int
+    public function getTarifHoraire(): ?string
     {
         return $this->tarifHoraire;
     }
 
-    public function setTarifHoraire(?int $tarifHoraire): self
+    public function setTarifHoraire(?string $tarifHoraire): self
     {
         $this->tarifHoraire = $tarifHoraire;
 
         return $this;
     }
 
-    public function getTarifEntretien(): ?int
+    public function getTarifEntretien(): ?string
     {
         return $this->tarifEntretien;
     }
 
-    public function setTarifEntretien(?int $tarifEntretien): self
+    public function setTarifEntretien(?string $tarifEntretien): self
     {
         $this->tarifEntretien = $tarifEntretien;
 

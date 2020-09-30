@@ -154,11 +154,11 @@ class ProfilsController extends AbstractController
            
             /* ../assets/images/photoExemple.jpg */
            
-            /* dd($originalFilename); */  
+           
 
             $this->getDoctrine()->getManager()->flush();
-
-            return $this->redirectToRoute('profils_index');
+            /* dd($profil);   */
+            return $this->redirectToRoute('liste');
         }
         
 

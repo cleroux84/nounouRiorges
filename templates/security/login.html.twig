@@ -1,8 +1,12 @@
 {% extends 'base.html.twig' %}
 
 {% block body%}
+<div>  
+    <img class="animate__animated animate__backOutRight logoNounou" src="{{asset("assets/images/nounouLogo.png")}}" class="img-fluid" alt="Responsive image">
+</div>
+
  <div class="container containerContentLogin">
-<h2 class="animate__animated animate__pulse">Identifiez-vous : </h2> 
+<h2 class="titleConnexion">Identifiez-vous : </h2> 
   
                 <form class="testForm" action="{{ path('security_login') }}" method="POST">
                     <div class="form-group">

@@ -5,7 +5,7 @@
         <title>{% block title %}Welcome!{% endblock %}</title>
         <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
                     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-        <link href="/assets/css/index.css" rel="stylesheet">
+        <link href={{asset('assets/css/index.css')}} rel="stylesheet">
          <link
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.0/animate.min.css"
@@ -14,41 +14,111 @@
         {% block stylesheets %}{% endblock %}
     </head>
     <body>
- <nav class="navbar navbar-expand-lg navbar-light bg-white">
+   
 {#             <a class="navbar-brand" href="{{ path('home') }}"><img src="{{asset("assets/images/logoNounouRiorges.png")}}" class="img-fluid" alt="Responsive image"></a>
- #}                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                    <div class="navbar-nav">
-                    <a class="nav-item nav-link active" href="{{ path('home') }}">Home <span class="sr-only">(current)</span></a>
-                    {% if not app.user %}
-                    <a class="nav-item nav-link" href="{{ path('security_registration') }}">Inscription</a>
-                     {% else %}
-                    <a class="nav-item nav-link" disabled>Inscription</a>
-                    {% endif %}
-
-                    <a class="nav-item nav-link" href="{{ path('liste') }}">Accès à la liste</a>
-
-                    {% if not app.user %}
-                    <a class="nav-item nav-link" href="{{ path('security_login') }}">Connexion</a>
-                    {% else %}
-                    <a class="nav-item nav-link" href="{{ path('security_logout') }}">Deconnexion</a>
-                    {% endif %}
+ #}              
            {#          <form class="form-inline">
     <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
   </form> #}
+{#   <img class="logoRiorges" src="{{asset("assets/images/logoRiorges.png")}}"> #}
+       
+<nav class="navbar navbar-expand-lg navbar-light navbarBase">
+    {% if not app.user %} 
+    <a class="navbar-brand" href="#"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+  {% else %} 
+    <a href="{{ path('home') }}">
+          <svg color="white" width="3em" height="3em" viewBox="0 0 16 16" class="bi bi-person-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+          </svg>
+    </a>
+    {% endif %}
 
-                    </div>
-                </div>
-              {#   <img class="logoRiorges" src="{{asset("assets/images/logoRiorges.png")}}"> #}
-                
-        </nav>
+  <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+            <a class="nav-link" href="{{ path('home') }}">Accueil <span class="sr-only">Home</span></a>
+      </li>
+        {% if not app.user %}
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('security_registration') }}">Inscription</a>
+            </li>
+        {% else %}
+            <li class="nav-item">
+                <a class="nav-link" disabled>Inscription</a>
+            </li>
+        {% endif %}
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('liste') }}">Liste</a>
+            </li>
+        {% if not app.user %}
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('security_login') }}">Connexion</a>
+            </li>
+        {% else %}
+                <li class="nav-item">
+                <a class="nav-link" href="{{ path('security_logout') }}">Deconnexion</a>
+            </li>
+        {% endif %}
+    </ul>
+  </div>
+{#   <img class="logoNounou" src="{{asset("assets/images/logoNounouRiorges.png")}}" class="img-fluid" alt="Responsive image">
+ #}</nav>
 
         {% block body %}
-        
+       
         {% endblock %}
+       <footer>
+            <nav class="footer-inner">
+                <section class="footer-item">
+                  <img class="logoRiorges" src="{{asset("assets/images/logoRiorges.png")}}">
+                </section>
+                    
+                <section class="footer-item">
+               <h2>Trouvez votre <br><b class="color">super nounou</b> <br>à Riorges.</h2>
+                   
+                </section>
+
+                <section class="footer-item">
+                <h3>Aide et Conseil</h3>
+                    <ul>
+                    <li><a href="https://www.riorges.fr/">Ville de Riorges</a></li>
+                    <li><a href="https://www.aggloroanne.fr/site-officiel-roannais-agglomeration-et-ville-de-roanne-3.html">Grand Roanne</a></li>
+                    <li><a href="https://www.aggloroanne.fr/annuaire-des-contacts-43/le-relais-information-accueil-petite-enfance-riape-1939.html?cHash=dbddd4c06fb00ac240b1acd412ce1386">RIAPE Roanne</a></li>
+                    <li><a href="https://www.loire.fr/jcms/lw_1073287/relais-assistantes-maternelles-de-proximite-de-roanne">RAM</a></li>
+                    </ul>
+                </section>
+                    
+               
+                        
+                <section class="footer-item">
+                <h3>New Business</h3>
+                    <p><a href="#">Email us</a></p>
+                    <p><a href="#">949.333.3106</a></p>
+                </section>
+                 <section class="footer-item">
+                    <h3>Mais aussi</h3>
+                    <li><a href="#">Baby-sitters</a></li>
+                    <li><a href="#">Familles / Gardes partagés</a></li>
+                    <li><a href="#">Assistante maternelles</a></li>
+                    <li><a href="mailto:nounouriorges@nounou.fr">Ecrivez-nous</a></li>
+                </section>
+                                        
+                <section class="footer-item">
+                <h3>A propos</h3>
+                    <ul>
+                    <li><a href="#">Mentions légales</a></li>
+                    <li><a href="#">Vie privée</a></li>
+                    <li><a href="#">Conditions</a></li>
+                    </ul>
+                </section>
+            </nav>
+        </footer> 
+        
+         
 </div>
         {% block javascripts %}
             <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script> 

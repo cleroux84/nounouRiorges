@@ -4,7 +4,7 @@
 
 {% block body %}
 <div>  
-    <h1>Liste des assistantes maternelles</h1>
+    <img class="animate__animated animate__backOutRight logoNounou" src="{{asset("assets/images/nounouLogo.png")}}" class="img-fluid" alt="Responsive image">
 </div>
 <div class="container testA">
 
@@ -89,9 +89,10 @@
                     </div>
                 </div>
                 <div class="general">
-                    <h1>{{listeUser.prenom}} {{listeUser.nom}}</h1>
+                    <h1 class="generalTitle">{{listeUser.prenom}} {{listeUser.nom}}</h1>
                     <p>{{listeUser.presentationText[:120] ~ '...' }}</p>
-                    <p>Place(s) actuellement disponible: {{listeUser.placeDispo }}</p>
+                    <p class="textPlaceListe"> Place(s) actuellement disponible: {{listeUser.placeDispo }} </p>
+                    
                     <span class="more">Survolez avec la souris pour plus de détails</span>
                 </div>
             </div>
