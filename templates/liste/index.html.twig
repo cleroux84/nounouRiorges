@@ -7,13 +7,30 @@
     <img class="animate__animated animate__backOutRight logoNounou" src="{{asset("assets/images/nounouLogo.png")}}" class="img-fluid" alt="Responsive image">
 </div>
 <div class="container testA">
-
-    <select class="custom-select custom-select-lg mb-3">
+<div>
+    {{ form_start(formSelect, {'method':'POST'}) }}
+    <div class="row selectRow">
+        <div class="col-5 titreSelect">
+            <p class="titreSelect">Recherché par : </p>
+        </div>
+        <div class="col-2 selectForm">
+        
+                {{ form_widget(formSelect.selectChoices) }}
+        
+        </div>
+        <div class="col-5 buttonSelect">
+            <button type="submit" class="btn effect01 selectButton">valider</button>
+        </div>
+    </div>
+   
+    {{ form_end(formSelect) }} 
+</div>
+{#     <select class="custom-select custom-select-lg mb-3">
         <option selected>Classer la liste par : </option>
         <option value="1">Place(s) actuellement disponible(s)</option>
         <option value="2">Tarif horaire</option>
         <option value="3">Années d'experiences</option>
-    </select>
+    </select> #}
 
   <div class="row">
 {% for listeUser in listeUsers %}

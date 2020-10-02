@@ -346,6 +346,33 @@ body {
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
 }
+.selectRow{
+    display: flex;
+    margin-top: 45px;
+}
+
+.titreSelect{
+    text-align: right;
+    font-size: large;
+}
+
+.buttonSelect{
+    text-align: start;
+}
+
+.selectForm{
+    text-align: center;
+}
+
+#liste_selectChoices{
+    width: 180px;
+}
+
+.selectButton{
+    width: 100px;
+    height: 35px;
+    line-height: 18px;
+}
 
 .card {
     width: 450px;
