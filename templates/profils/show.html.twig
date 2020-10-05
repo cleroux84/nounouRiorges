@@ -9,9 +9,6 @@
 
 <div class="container">
     <div class="row">
-        {# <div class="col-3">
-      
-        </div> #}
         <div class="col-9">
             <div class="row">
             {% if app.user %}
@@ -38,8 +35,15 @@
                                     <a href="{{ path('liste') }}" class="btn effect01"><span>Retour liste</span></a>
                             </div>
                         </div>
-                    </div>
-            </div>
+                </div>
+                <div class="col-3">
+                        <div class="buttons">
+                            <div class="container">
+                                    <a href="{{ path('pdf', {'id': profil.id}) }}" class="btn effect01"><span>Download PDF</span></a>
+                            </div>
+                        </div>
+                </div>
+               
         </div>
     </div>
 
@@ -47,11 +51,11 @@
         <div class="col-6">
             <div class="profilPixContent">
             {% if not profil.photoIdentite  %}
-                <div class="card" {# style="width: 18rem; #}>
+                <div class="card cardBorder" {# style="width: 18rem; #}>
                     <img class="card-img-top" src="../assets/images/profilBlanc.png" alt="Card image cap">
                 </div>
             {% else %}
-                <div class="card" style="width: 18rem;">
+                <div class="card cardBorder" style="width: 18rem;">
                     <img class="card-img-top photoShowProfil" src="{{ asset('uploads/' ~ profil.photoIdentite) }}" />
                 </div>
             {% endif %}

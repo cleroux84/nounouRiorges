@@ -1,0 +1,75 @@
+<link href={{asset('assets/css/index.css')}} rel="stylesheet">
+
+{% block title %}Fiche entretien avec <b>{{profil.Prenom}} {{profil.nom}} </b>{% endblock %}
+      
+{% block body %}
+
+<div class="container">
+    <p>Rendez-vous le .../.../... à ..h..</p>
+      <div class="adresseProfil">
+            <p>Profil : </p>
+                            {{ profil.NumeroRueAdresse }}<br />
+                            {{ profil.complementAdresse }}<br />
+                            {{ profil.codePostal }} -
+                            {{ profil.villeAdresse }}
+            </div>
+            <p></p>
+
+            <div class="telHoraire">
+                <div>
+            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-telephone-fill iconeProfil" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M2.267.98a1.636 1.636 0 0 1 2.448.152l1.681 2.162c.309.396.418.913.296 1.4l-.513 2.053a.636.636 0 0 0 .167.604L8.65 9.654a.636.636 0 0 0 .604.167l2.052-.513a1.636 1.636 0 0 1 1.401.296l2.162 1.681c.777.604.849 1.753.153 2.448l-.97.97c-.693.693-1.73.998-2.697.658a17.47 17.47 0 0 1-6.571-4.144A17.47 17.47 0 0 1 .639 4.646c-.34-.967-.035-2.004.658-2.698l.97-.969z"/>
+            </svg>
+                Me joindre par téléphone : {{ profil.telephone }} <br />
+            
+                </div>
+             <div>
+             <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-calendar3-week iconeProfil" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M14 0H2a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zM1 3.857C1 3.384 1.448 3 2 3h12c.552 0 1 .384 1 .857v10.286c0 .473-.448.857-1 .857H2c-.552 0-1-.384-1-.857V3.857z"/>
+                <path fill-rule="evenodd" d="M12 7a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-5 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm2-3a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-5 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
+            </svg>
+                Horaires: {{ profil.horaires }}
+            </div>
+            </div>
+
+    <div class="row presentationRow">
+        <div class="col-5">
+        </div>
+        <div class="col-7">
+            <div class="presentationContent">
+            <h3>Quelques mots </h3>
+                <div class="presentationText">
+                    " {{ profil.presentationText }} "
+                </div>
+            </div>
+        </div>
+    </div>
+
+<h3>Résumé </h3>
+    <div class="resumePdf">
+       
+            <ul class="list-group listePdfLeft left">
+                    <li class="list-group-item">Date de fin d'agrément : {{ profil.AgrementDate ? profil.AgrementDate|date('d-m-Y') : '' }}</li>
+                    <li class="list-group-item">Nombre de place disponible: {{ profil.placeDispo }}</li>
+                    <li class="list-group-item">Tarif : {{ profil.tarifHoraire }} €/heure</li>
+                    <li class="list-group-item">Tarif entretien : {{ profil.tarifEntretien }} €/jour</li>
+                    <li class="list-group-item">Formation petite enfance : {{ profil.formationPetiteEnfance }}</li>
+                    <li class="list-group-item">Formation premier secours: {{ profil.formationPremierSecours }}</li>
+                </ul>
+            <ul class="list-group listePdf">
+                    <li class="list-group-item">BAFA : {{ profil.bafa }}</li>
+                    <li class="list-group-item">Permis de conduire : {{ profil.permisConduire }}</li>
+                    <li class="list-group-item">Animaux : {{ profil.Animaux }}</li>
+                    <li class="list-group-item">Langues parlées : {{ profil.languesParlees }}</li>
+                    <li class="list-group-item">Expériences : {{ profil.experience }} années</li>
+                    <li class="list-group-item">Véhiculé : {{ profil.vehicule }}</li>
+                </ul>
+    </div>
+</div>
+<h3>Notes, questions, ...</h3>
+<<div class="form-group">
+  <label for=""></label>
+  <textarea class="form-control" rows=""></textarea>
+</div>
+
+{% endblock %}

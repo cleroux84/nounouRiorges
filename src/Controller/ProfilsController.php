@@ -13,7 +13,8 @@ use Symfony\Component\String\Slugger\SluggerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
-
+use Dompdf\Dompdf;
+use Dompdf\Options;
 
 /**
  * @Route("/profils")
@@ -28,7 +29,7 @@ class ProfilsController extends AbstractController
     {
         $originalFilename = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME);
         $safeFilename = $slugger->slug($originalFilename);
-        $newFilename = $safeFilename.'-'.uniqid().'.'.$file->guessExtension();
+        $newFilename = $safeFilename . '-' . uniqid() . '.' . $file->guessExtension();
 
         try {
             $file->move(
@@ -42,7 +43,7 @@ class ProfilsController extends AbstractController
         return $newFilename;
     }
 
-   
+
     /**
      * @Route("/", name="profils_index", methods={"GET","POST"})
      */
@@ -84,7 +85,7 @@ class ProfilsController extends AbstractController
         $profilId = $profil->getUser();
 
         $userId = $this->get('security.token_storage')->getToken()->getUser();
-   
+
         return $this->render('profils/show.html.twig', [
             'profilId' => $profilId,
             'profil' => $profil,
@@ -94,90 +95,121 @@ class ProfilsController extends AbstractController
     }
 
     /**
+     * @Route("/{id}/pdf", name="pdf", methods={"GET","POST"})
+     */
+    public function toPdfAction(Profils $profil)
+    {
+
+        $pdfOptions = new Options();
+        $pdfOptions->set('defaultFont', 'Arial');
+
+        // Instantiate Dompdf with our options
+        $dompdf = new Dompdf($pdfOptions);
+        
+        // Retrieve the HTML generated in our twig file
+        $html = $this->renderView('profils/pdf.html.twig', [
+            'profil' => $profil,
+        ]);
+        
+        // Load HTML to Dompdf
+        $dompdf->loadHtml($html);
+
+        // (Optional) Setup the paper size and orientation 'portrait' or 'portrait'
+        $dompdf->setPaper('A4', 'portrait');
+
+        // Render the HTML as PDF
+        $dompdf->render();
+
+        $dompdf->stream("mypdf.pdf", [
+            "Attachment" => true
+        ]);
+    }
+
+    /**
      * @Route("/{id}/edit", name="profils_edit", methods={"GET","POST"})
      */
     public function edit(Request $request, Profils $profil, SluggerInterface $slugger): Response
     {
         $form = $this->createForm(ProfilsType::class, $profil);
-        $form->handleRequest($request);  
+        $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-           /** @var UploadedFile $file */
-           $file = $form->get('photoIdentite')->getData();
-           if ($file){
-               $newFilename = $this->saveUploadFile(
-                   $file, 
-                   $this->getParameter('upload_directory'),
-                   $slugger
-               );
-               $profil->setPhotoIdentite($newFilename);
-           }
-           $file1 = $form->get('photo1')->getData();
-           if ($file1){
-               $newFilename = $this->saveUploadFile(
-                   $file1, 
-                   $this->getParameter('upload_directory'),
-                   $slugger
-               );
-               $profil->setPhoto1($newFilename);
-           }
-           $file2 = $form->get('photo2')->getData();
-           if ($file2){
-               $newFilename = $this->saveUploadFile(
-                   $file2, 
-                   $this->getParameter('upload_directory'),
-                   $slugger
-               );
-               $profil->setPhoto2($newFilename);
-           }
-           $file3 = $form->get('photo3')->getData();
-           if ($file3){
-               $newFilename = $this->saveUploadFile(
-                   $file3, 
-                   $this->getParameter('upload_directory'),
-                   $slugger
-               );
-               $profil->setPhoto3($newFilename);
-           }
-           $file4 = $form->get('photo4')->getData();
-           if ($file4){
-               $newFilename = $this->saveUploadFile(
-                   $file4, 
-                   $this->getParameter('upload_directory'),
-                   $slugger
-               );
-               $profil->setPhoto4($newFilename);
-           }
-           
-           
-           
-           
+            /** @var UploadedFile $file */
+            $file = $form->get('photoIdentite')->getData();
+            if ($file) {
+                $newFilename = $this->saveUploadFile(
+                    $file,
+                    $this->getParameter('upload_directory'),
+                    $slugger
+                );
+                $profil->setPhotoIdentite($newFilename);
+            }
+            $file1 = $form->get('photo1')->getData();
+            if ($file1) {
+                $newFilename = $this->saveUploadFile(
+                    $file1,
+                    $this->getParameter('upload_directory'),
+                    $slugger
+                );
+                $profil->setPhoto1($newFilename);
+            }
+            $file2 = $form->get('photo2')->getData();
+            if ($file2) {
+                $newFilename = $this->saveUploadFile(
+                    $file2,
+                    $this->getParameter('upload_directory'),
+                    $slugger
+                );
+                $profil->setPhoto2($newFilename);
+            }
+            $file3 = $form->get('photo3')->getData();
+            if ($file3) {
+                $newFilename = $this->saveUploadFile(
+                    $file3,
+                    $this->getParameter('upload_directory'),
+                    $slugger
+                );
+                $profil->setPhoto3($newFilename);
+            }
+            $file4 = $form->get('photo4')->getData();
+            if ($file4) {
+                $newFilename = $this->saveUploadFile(
+                    $file4,
+                    $this->getParameter('upload_directory'),
+                    $slugger
+                );
+                $profil->setPhoto4($newFilename);
+            }
+
+
+
+
             /* ../assets/images/photoExemple.jpg */
-           
-           
+
+
 
             $this->getDoctrine()->getManager()->flush();
             /* dd($profil);   */
             return $this->redirectToRoute('liste');
         }
-        
+
 
         return $this->render('profils/edit.html.twig', [
             'profil' => $profil,
             'form' => $form->createView(),
         ]);
     }
-            public function getTargetDirectory()
-            {
-                return $this->targetDirectory;
-            }
-            
+    public function getTargetDirectory()
+    {
+        return $this->targetDirectory;
+    }
+
     /**
      * @Route("/{id}", name="profils_delete", methods={"DELETE"})
      */
     public function delete(Request $request, Profils $profil): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$profil->getId(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete' . $profil->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($profil);
             $entityManager->flush();
