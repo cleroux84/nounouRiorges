@@ -48,11 +48,10 @@
     </div>
 
     <div class="row coordonneesContent">
-        <div class="col-6">
+        <div class="col-4">
             <div class="profilPixContent">
             {% if not profil.photoIdentite  %}
-                <div class="card cardBorder">
-                    <img class="card-img-top" src="../assets/images/profilBlanc.png" alt="Card image cap">
+                <div>
                 </div>
             {% else %}
                 <div class="card cardBorder" style="width: 18rem;">
@@ -61,7 +60,7 @@
             {% endif %}
             </div>
         </div>
-        <div class="col-6">
+        <div class="col-4">
             <div class="nomPrenomContent">
                 Profil de {{ profil.Prenom }} {{ profil.Nom }}
             </div>
@@ -91,10 +90,18 @@
             </div>
             </div>
         </div>
-       {#  <div class="col">
-            
-            
-        </div> #}
+
+        {% if profil.latitude  %}
+       <div class="col-4">
+            <div id="map"></div>
+                <div id="lat" style="display: none">{{profil.latitude}}</div>
+                <div id="long" style="display: none">{{profil.longitude}}</div>
+            </div>
+        </div> 
+         {% else  %}
+         <div class="col-4">
+         </div>
+         {% endif %}
     </div>
     <div class="row presentationRow">
         <div class="col-5">
@@ -174,7 +181,6 @@
         </div>
     </div>
 
-<div id="map"></div>
-</div>
+
 
 {% endblock %}

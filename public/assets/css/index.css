@@ -575,8 +575,11 @@ body {
 
 /* profil */
 #map { 
-    height: 400px; 
-    width: 400px;
+    height: 300px; 
+    width: 300px;
+    margin: auto;
+    color: #b5bebe;
+    box-shadow: 2px 5px;
 }
 
 /* .buttonToPdf{

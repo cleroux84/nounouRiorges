@@ -16,6 +16,7 @@ use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Dompdf\Dompdf;
 use Dompdf\Options;
 
+
 /**
  * @Route("/profils")
  */
@@ -151,11 +152,12 @@ class ProfilsController extends AbstractController
         $obj = json_decode($json, true);
         $latitude = $obj[0]['lat'];
         $longitude = $obj[0]['lon'];
-        /* dd($latitude); */
-
 
         $form = $this->createForm(ProfilsType::class, $profil);
         $form->handleRequest($request);
+        $profil->setLatitude($latitude);
+        $profil->setLongitude($longitude);
+       /*  dd($profil); */
 
         if ($form->isSubmitted() && $form->isValid()) {
             /** @var UploadedFile $file */
@@ -206,14 +208,8 @@ class ProfilsController extends AbstractController
             }
 
 
-
-
-            /* ../assets/images/photoExemple.jpg */
-
-
-
             $this->getDoctrine()->getManager()->flush();
-            /* dd($profil);   */
+            /*  dd($profil);  */ 
             return $this->redirectToRoute('liste');
         }
 
