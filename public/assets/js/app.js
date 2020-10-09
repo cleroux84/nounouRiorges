@@ -17,6 +17,5 @@ L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
     .setContent("I am a standalone popup.")
     .openOn(mymap); */ 
 
-/* let test = 'https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=AIzaSyBMe0i4JuejdKoSlVcz6YKOfs55hld2w24'
-console.log(test); */
+
 
