@@ -82,15 +82,36 @@ class ProfilsController extends AbstractController
      */
     public function show(User $user, Profils $profil): Response
     {
-        $profilId = $profil->getUser();
+     
 
+        $profilId = $profil->getUser();
+        $coordonneesGps = $_SERVER['REMOTE_ADDR'];
         $userId = $this->get('security.token_storage')->getToken()->getUser();
 
+/* autoriser json */
+ /*        $url="https://new.aol.com/productsweb/subflows/ScreenNameFlow/AjaxSNAction.do?s=username&f=firstname&l=lastname";
+        ini_set('user_agent', 'Mozilla/4.0 (compatible; MSIE 6.0; Windows NT
+        5.1; SV1; .NET CLR 1.0.3705; .NET CLR 1.1.4322)');
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL,$url);
+        $result=curl_exec($ch);
+        print $result;
+
+        $codePostal = $profil->getCodePostal();
+        $ville = $profil->getVilleAdresse();
+        $json= file_get_contents('http://nominatim.openstreetmap.org/search?format=json&limit=1&q='.$codePostal.'+'.$ville.'');
+        $obj = json_decode($json, true);
+        $latitude = $obj[0]['lat'];
+        $longitude = $obj[0]['lon'];
+        dd($json); */
+       
+        
         return $this->render('profils/show.html.twig', [
             'profilId' => $profilId,
             'profil' => $profil,
             'user' => $user,
             'userId' => $userId,
+            'coordonneesGps' => $coordonneesGps,
         ]);
     }
 
@@ -99,18 +120,21 @@ class ProfilsController extends AbstractController
      */
     public function toPdfAction(Profils $profil)
     {
-
+        
         $pdfOptions = new Options();
-        $pdfOptions->set('defaultFont', 'Arial');
-
+/*         $pdfOptions->set('defaultFont', 'Arial');
+ */
         // Instantiate Dompdf with our options
         $dompdf = new Dompdf($pdfOptions);
         
         // Retrieve the HTML generated in our twig file
+        
         $html = $this->renderView('profils/pdf.html.twig', [
             'profil' => $profil,
-        ]);
-        
+            ]);
+            /* $html .= '<link rel="stylesheet" href="/css/bootstrap.min.css" />';
+            $html .= '<link href="./public/assets/css/index.css" rel="stylesheet" /> ';
+         */
         // Load HTML to Dompdf
         $dompdf->loadHtml($html);
 

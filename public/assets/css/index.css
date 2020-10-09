@@ -279,7 +279,8 @@ body {
 .presentationContent{
     margin: 10%;
     width: 600px;
-    height: 300px;    
+    height: 300px;  
+   /*  margin-bottom: 100px;   */
     
 }
 .presentationText{
@@ -549,8 +550,34 @@ body {
 .cardContentList{
     margin-top: 30px;
 }
+ /*PDF*/
+ .titlePdf{
+     color: black;
+     font-size: large;
+     font-weight: bold;
+ }
+ .resumePdf{
+     color: black;
+     display: flex;
+ }
+ .listePdf{
+     margin-left: 100px;
+/*      margin: 10px; */
+ }
+ .list-group-item{
+     color: black;
+     font-size: large;
+ }
+ .notes{
+     margin-top: 20px;
+ }
+
 
 /* profil */
+#map { 
+    height: 400px; 
+    width: 400px;
+}
 
 /* .buttonToPdf{
     color: #FFF;

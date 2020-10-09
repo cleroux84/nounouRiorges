@@ -30,20 +30,20 @@
                 {% endif %}
             {% endif %}
                 <div class="col-3">
-                        <div class="buttons">
-                            <div class="container">
-                                    <a href="{{ path('liste') }}" class="btn effect01"><span>Retour liste</span></a>
-                            </div>
+                    <div class="buttons">
+                        <div class="container">
+                                <a href="{{ path('liste') }}" class="btn effect01"><span>Retour liste</span></a>
                         </div>
+                    </div>
                 </div>
                 <div class="col-3">
-                        <div class="buttons">
-                            <div class="container">
-                                    <a href="{{ path('pdf', {'id': profil.id}) }}" class="btn effect01"><span>Download PDF</span></a>
-                            </div>
+                    <div class="buttons">
+                        <div class="container">
+                                <a href="{{ path('pdf', {'id': profil.id}) }}" class="btn effect01"><span>Télécharger PDF</span></a>
                         </div>
+                    </div>
                 </div>
-               
+            </div>
         </div>
     </div>
 
@@ -51,7 +51,7 @@
         <div class="col-6">
             <div class="profilPixContent">
             {% if not profil.photoIdentite  %}
-                <div class="card cardBorder" {# style="width: 18rem; #}>
+                <div class="card cardBorder">
                     <img class="card-img-top" src="../assets/images/profilBlanc.png" alt="Card image cap">
                 </div>
             {% else %}
@@ -91,6 +91,10 @@
             </div>
             </div>
         </div>
+       {#  <div class="col">
+            
+            
+        </div> #}
     </div>
     <div class="row presentationRow">
         <div class="col-5">
@@ -104,51 +108,12 @@
             </div>
         </div>
     </div>
-   {#  <div class="diversContent row">
-        <div class="col-3">
-            Date de fin d'agrément : {{ profil.AgrementDate ? profil.AgrementDate|date('d-m-Y') : '' }}
-        </div>
-        <div class="col-3">
-            Nombre de place disponible: {{ profil.placeDispo }}
-        </div>
-        <div class="col-3">
-            Tarif : {{ profil.tarifHoraire }} €/heure
-        </div>
-        <div class="col-3">
-            Tarif entretien : {{ profil.tarifEntretien }} €/jour
-        </div>
-    </div>
-     <div class="diversContent row">
-        <div class="col-3">
-            Formation petite enfance : {{ profil.formationPetiteEnfance }}
-        </div>
-        <div class="col-3">
-            Formation premier secours: {{ profil.formationPremierSecours }}
-        </div>
-        <div class="col-3">
-            BAFA : {{ profil.bafa }}
-        </div>
-        <div class="col-3">
-            Permis de conduire : {{ profil.permisConduire }}
-        </div>
-    </div>
-    <div class="diversContent row">
-        <div class="col-3">
-            Animaux : {{ profil.Animaux }}
-        </div>
-         <div class="col-3">
-            Langues parlées : {{ profil.languesParlees }}
-        </div>       
-        <div class="col-3">
-            Expériences : {{ profil.experience }} années
-        </div>
-        <div class="col-3">
-            Véhiculé : {{ profil.vehicule }}
-        </div>
-    </div> #}
 
+<p></p>
 <h3>Résumé </h3>
 <h2></h2>
+<p></p>
+
 
 <table class="container tableContent">
 	<tbody>
@@ -172,7 +137,7 @@
 		</tr>
 	</tbody>
 </table>
-</div>
+
 
 <div class="container">
     <div id="carouselExampleControls" class="carousel slide carou" data-ride="carousel">
@@ -209,7 +174,7 @@
         </div>
     </div>
 
-</div>
+<div id="map"></div>
 </div>
 
 {% endblock %}
