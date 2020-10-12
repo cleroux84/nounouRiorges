@@ -7,6 +7,7 @@ use App\Form\ListeType;
 use App\Entity\Profils;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Console\Helper\Dumper;
 use Symfony\Component\HttpFoundation\Request;
 
 
@@ -40,21 +41,28 @@ class ListeController extends AbstractController
           else{
             $listeUsers = $repo->findBy(array(), array('AgrementDate'=>'asc')); 
           }
-        }
+        }    
+        
+  /*       $arrayLatitude = [];
+        $arrayLongitude = [];
+        $arrayLatLong = [];
 
+        foreach ($listeUsers as $listeUser){
+
+        $latitude = $listeUser->getLatitude();
+        $longitude = $listeUser->getLongitude();
+        array_push($arrayLatLong, $latitude, $longitude);
+        array_push($arrayLongitude, $longitude); 
         
-       /*  $listeUsers = $repo->findAll();  */
-        
+        } */
        
-        
-
-        return $this->render('liste/index.html.twig', [
+      return $this->render('liste/index.html.twig', [
             'formSelect' => $formSelect->createView(),
             'controller_name' => 'ListeController',
             'listeUsers' => $listeUsers,
-           /*  'listeUserByPlaceDispo' => $listeUsersByPlaceDispo,
-            'listeUsersByTarif' => $listeUsersByTarif,
-            'listeUsersByAgrement' => $listeUsersByAgrement, */
+            /* 'arrayLatitude' => $arrayLatitude,
+            'arrayLongitude' => $arrayLongitude,
+            'arrayLatLong' => $arrayLatLong, */
         ]);
     }
 

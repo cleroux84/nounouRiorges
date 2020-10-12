@@ -582,6 +582,11 @@ body {
     box-shadow: 2px 5px;
 }
 
+#macarte{
+    height: 500px;
+    width: 500px;
+}
+
 /* .buttonToPdf{
     color: #FFF;
     border: 4px solid #000;

@@ -1,8 +1,18 @@
 {% extends 'base.html.twig' %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+                integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+                crossorigin=""/>
+                <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+                integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+                crossorigin=""></script>
+    <link
+{% endblock %}
 
 {% block title %}Liste des assistantes maternelles{% endblock %}
 
 {% block body %}
+
 <div>  
     <img class="animate__animated animate__backOutRight logoNounou" src="{{asset("assets/images/nounouLogo.png")}}" class="img-fluid" alt="Responsive image">
 </div>
@@ -123,5 +133,15 @@
     </div>
 {% endfor %}
   </div>
+<div id="macarte"></div>
+{# {{ arrayLatitude|join(', ') }}
+{{ arrayLongitude|join(', ') }} #}
+{# <div id="latLong">{{ arrayLatLong|join(', ') }}</div> #}
+
 </div>
+ 
+{% endblock %}
+
+{% block javascripts %}
+<script src="{{asset('assets/js/mapList.js')}}"></script>
 {% endblock %}

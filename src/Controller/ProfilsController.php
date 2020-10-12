@@ -16,7 +16,6 @@ use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Dompdf\Dompdf;
 use Dompdf\Options;
 
-
 /**
  * @Route("/profils")
  */
@@ -83,11 +82,19 @@ class ProfilsController extends AbstractController
      */
     public function show(User $user, Profils $profil): Response
     {
+    // Calling Abstract API endpoint using CURL library (http://us3.php.net/curl)
+       /*   $ch = curl_init('https://ipgeolocation.abstractapi.com/v1/?api_key=b3ffc41ecae94b03a1297f26a86a4b90&ip_address=172.16.238.1');
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_HEADER, 0);
+        $data = curl_exec($ch);
+        curl_close($ch);
+        $test = json_decode($data); */
+      /*   dd($test); */  
 
         $profilId = $profil->getUser();
         $coordonneesGps = $_SERVER['REMOTE_ADDR'];
         $userId = $this->get('security.token_storage')->getToken()->getUser();      
-        
+        /*  dd($coordonneesGps); */ 
         return $this->render('profils/show.html.twig', [
             'profilId' => $profilId,
             'profil' => $profil,
@@ -152,6 +159,8 @@ class ProfilsController extends AbstractController
         $obj = json_decode($json, true);
         $latitude = $obj[0]['lat'];
         $longitude = $obj[0]['lon'];
+
+
 
         $form = $this->createForm(ProfilsType::class, $profil);
         $form->handleRequest($request);
