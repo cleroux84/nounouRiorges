@@ -42,6 +42,12 @@
         <option value="3">Années d'experiences</option>
     </select> #}
 
+        {#     <div class="buttons">
+                    <div class="container">
+                        <a href="{{ path('listtopdf') }}" class="btn effect01"><span>test pdf</span></a>
+                    </div>
+                </div> #}
+
   <div class="row">
 {% for listeUser in listeUsers %}
   <div class="col-6 cardContentList">
@@ -133,10 +139,14 @@
     </div>
 {% endfor %}
   </div>
-<div id="macarte"></div>
-{# {{ arrayLatitude|join(', ') }}
-{{ arrayLongitude|join(', ') }} #}
-{# <div id="latLong">{{ arrayLatLong|join(', ') }}</div> #}
+<!-- <div id="macarte"></div> -->
+{# {{ arrayLatitude|join(', ') }} <br>
+{{ arrayLongitude|join(', ') }} <br> #}
+{# {{ arrayLatLong|join(', ') }} #}
+<!-- {% for listeUser in listeUsers %}
+    <div class="latitude">{{ listeUser.latitude }}, {{ listeUser.longitude }}</div>
+{% endfor %} -->
+
 
 </div>
  

@@ -43,26 +43,26 @@ class ListeController extends AbstractController
           }
         }    
         
-  /*       $arrayLatitude = [];
-        $arrayLongitude = [];
-        $arrayLatLong = [];
+          $arrayLatitude = [];
+          $arrayLongitude = [];
+
+     
 
         foreach ($listeUsers as $listeUser){
 
         $latitude = $listeUser->getLatitude();
         $longitude = $listeUser->getLongitude();
-        array_push($arrayLatLong, $latitude, $longitude);
+        array_push($arrayLatitude, $latitude);
         array_push($arrayLongitude, $longitude); 
-        
-        } */
+        }
+      
        
       return $this->render('liste/index.html.twig', [
             'formSelect' => $formSelect->createView(),
             'controller_name' => 'ListeController',
             'listeUsers' => $listeUsers,
-            /* 'arrayLatitude' => $arrayLatitude,
+            'arrayLatitude' => $arrayLatitude,
             'arrayLongitude' => $arrayLongitude,
-            'arrayLatLong' => $arrayLatLong, */
         ]);
     }
 

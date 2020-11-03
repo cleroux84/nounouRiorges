@@ -15,134 +15,7 @@ body {
     font-family:"OpenSansCondensed";
    }
 
-/* navbar */
-.nav-link{
-    font-size: larger;
-} 
-
-.nav-item{
-    color: white;
-
-}
-.navbarBase{
-    background-color: #b5bebe;
-}
-
-
-.logoNounou{
-   
-    width: 300px;
-    margin-top: -50px;
-    margin-bottom: -100px;
-}
-.animate__animated.animate__backOutRight {
-    --animate-duration: 8s;
-  }
-
-/* .imageAccueil{
-    height: 400px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-} */
-
-.ifLoggedContent{
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
-
-.identificationMail{
-    font-size: 20px;
-}
-
-.homeContainer{
-    display: flex;
-    justify-content: center;
-    margin-top: -40px;
-}
-.homeParentText{
-    display: flex;
-    margin-top: 300px;
-    flex-direction: column;
-    padding: 20px;
-}
-.homeNounouText{
-    display: flex;
-    margin-top: 300px;
-    flex-direction: column;
-    padding: 20px;
-}
-/* .homeParentText:hover{
-
-    transform: matrix(1, 2, 3, 4, 5, 6);
-} */
-
-.homeParentContent{
-    margin-top: 40px;
-    
-    background-image: url("../images/famille.jpg") ;
-    background-repeat: no-repeat;
-    background-size: 100%;
-    padding: 20px;
-    height: 600px;
-    opacity: 0.2; 
-    display: flex;
-    flex-direction: column;
-}
-
-.homeParentContent:hover{
-    opacity: 1;  
-}
-
-.homeTextP{
-    font-size: 20px;
-    margin: auto;
-    padding: 20px;
-    background: rgba(235, 229, 229, 0.5);
-    box-shadow: 0px 5px 0px 0px rgba(68,65,59,0.59);
-    border-radius: 20px;
-    border: 3px solid #FFFFFF;
-    font-family: "OpenSansCondensedBold";
-}
-.homeTextnounouP{
-    font-size: 20px;
-    margin: auto;
-    padding: 20px;
-    background: rgba(133, 132, 132, 0.5);
-    box-shadow: 0px 5px 0px 0px rgba(24, 24, 23, 0.59);
-    border-radius: 20px;
-    border: 3px solid #FFFFFF;
-    color: white;
-    font-family: "OpenSansCondensedBold";
-}
-
-.containerContentLogin{
-    margin-top: 30px; 
-}
-
-.textPlaceListe{
-    font-size: 17px;
-}
-
-.photoDownload{
-    font-weight: bold;
-}
-
-.modifProfilContent{
-    margin-bottom: -450px;
-}
-.titleModifProfil{
-    font-size: 30px;
-    margin-top: 50px;
-    margin-bottom: 30px;
-    padding-left: 30px;
-}
-
-.photoSearch{
-    margin-top: 25px;
-    font-weight: bold;
-}
-
+/* boutons design */
 .buttons {
     display: flex;
     flex-direction: row;
@@ -224,6 +97,97 @@ body {
             transform: rotate(40deg);
   }
 
+
+/* navbar base */
+.nav-link{
+    font-size: larger;
+} 
+
+.nav-item{
+    color: white;
+
+}
+.navbarBase{
+    background-color: #b5bebe;
+}
+
+.logoNounou{
+   
+    width: 300px;
+    margin-top: -50px;
+    margin-bottom: -100px;
+}
+.animate__animated.animate__backOutRight {
+    --animate-duration: 8s;
+  }
+
+/* home */
+.ifLoggedContent{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.identificationMail{
+    font-size: 20px;
+}
+
+.homeContainer{
+    display: flex;
+    justify-content: center;
+    margin-top: -40px;
+}
+.homeParentText{
+    display: flex;
+    margin-top: 300px;
+    flex-direction: column;
+    padding: 20px;
+}
+.homeNounouText{
+    display: flex;
+    margin-top: 300px;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.homeParentContent{
+    margin-top: 40px;
+    
+    background-image: url("../images/famille.jpg") ;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    padding: 20px;
+    height: 600px;
+    opacity: 0.2; 
+    display: flex;
+    flex-direction: column;
+}
+
+.homeParentContent:hover{
+    opacity: 1;  
+}
+
+.homeTextP{
+    font-size: 20px;
+    margin: auto;
+    padding: 20px;
+    background: rgba(235, 229, 229, 0.5);
+    box-shadow: 0px 5px 0px 0px rgba(68,65,59,0.59);
+    border-radius: 20px;
+    border: 3px solid #FFFFFF;
+    font-family: "OpenSansCondensedBold";
+}
+.homeTextnounouP{
+    font-size: 20px;
+    margin: auto;
+    padding: 20px;
+    background: rgba(133, 132, 132, 0.5);
+    box-shadow: 0px 5px 0px 0px rgba(24, 24, 23, 0.59);
+    border-radius: 20px;
+    border: 3px solid #FFFFFF;
+    color: white;
+    font-family: "OpenSansCondensedBold";
+}
+
 .homeNounouContent{
     margin-top: 40px;
     background-image: url("../images/nounnou.jpg") ;
@@ -239,23 +203,17 @@ body {
 .homeButtonsNounou{
     margin-top: -20px;
 }
+/* fin home */
+
+/* form login et inscription */
+
 .containerContentLogin{
     width: 600px;
     border: 1px solid rgb(209, 206, 206);
     border-radius: 2%;
     padding: 20px;
     height: 350px;
-
-
-}
-.formLogin{
-    width: 500px;
-    height: 300px;
-    margin: auto;
-}
-
-.photoIdentite{
-    width: 10%;
+    margin-top: 30px; 
 }
 
 .formInscription{
@@ -271,6 +229,29 @@ body {
     font-size: 30px;
 }
 
+
+/* profil form */
+.photoDownload{
+    font-weight: bold;
+}
+
+/* profils */
+
+.modifProfilContent{
+    margin-bottom: -450px;
+}
+.titleModifProfil{
+    font-size: 30px;
+    margin-top: 50px;
+    margin-bottom: 30px;
+    padding-left: 30px;
+}
+
+.photoSearch{
+    margin-top: 25px;
+    font-weight: bold;
+}
+
 .coordonneesContent{
     display: flex;
     margin-top: 5%;
@@ -279,9 +260,7 @@ body {
 .presentationContent{
     margin: 10%;
     width: 600px;
-    height: 300px;  
-   /*  margin-bottom: 100px;   */
-    
+    height: 300px;     
 }
 .presentationText{
     font-size: 110%;
@@ -307,39 +286,32 @@ body {
     font-size: 120%;
 }
 
-.diversContent{
-    height: 100px;
-}
-
 .iconeProfil{
     margin-right: 5%;
 }
 
-
-.carouselContent{
-    width: 500px;
-    height: 500px;
-}
 .carousel-inner{
     margin-bottom: 30px;
 
 }
-.listCol{
-    margin: 20px;
+
+#map { 
+    height: 300px; 
+    width: 300px;
+    margin: auto;
+    color: #b5bebe;
+    box-shadow: 2px 5px;
 }
 
-.cardListe{
-    padding: 15px;
-    width: 475px;
-    height: 330px;
-}
+/* fin page profil */
 
-.photoListe{
-    width: 50%;
-}
 
 /* page Liste */
 @import url('https://fonts.googleapis.com/css?family=Abel');
+
+.textPlaceListe{
+    font-size: 17px;
+}
 
 .center {
     position: absolute;
@@ -365,16 +337,26 @@ body {
     text-align: center;
 }
 
-#liste_selectChoices{
-    width: 180px;
-}
-
 .selectButton{
     width: 100px;
     height: 35px;
     line-height: 18px;
 }
 
+.generalTitle{
+    color: black;
+}
+
+.buttonListeDetail{
+    position: absolute;
+    margin-top: 170px;
+}
+
+.cardContentList{
+    margin-top: 30px;
+}
+
+/* cartes nounou */
 .card {
     width: 450px;
     height: 250px;
@@ -467,15 +449,11 @@ body {
     margin-bottom: 0;
 }
 
-
-
 .card .additional .coords {
     margin: 0 1rem;
     color: #00020c;
     font-size: 1rem;
 }
-
-
 
 .card .additional .coords span + span {
     float: right;
@@ -491,8 +469,6 @@ body {
     top: auto;
     color: #00020c;
 }
-
-
 
 .card .additional .stats > div {
     flex: 1;
@@ -538,19 +514,16 @@ body {
     font-size: 0.9em;
 }
 
-.generalTitle{
-    color: black;
+#macarte{
+    height: 500px;
+    width: 500px;
 }
 
-.buttonListeDetail{
-    position: absolute;
-    margin-top: 170px;
-}
+/* fin cartes nounou */
+/* fin page Liste */
 
-.cardContentList{
-    margin-top: 30px;
-}
- /*PDF*/
+ /*page profil PDF*/
+
  .titlePdf{
      color: black;
      font-size: large;
@@ -562,7 +535,6 @@ body {
  }
  .listePdf{
      margin-left: 100px;
-/*      margin: 10px; */
  }
  .list-group-item{
      color: black;
@@ -572,30 +544,6 @@ body {
      margin-top: 20px;
  }
 
-
-/* profil */
-#map { 
-    height: 300px; 
-    width: 300px;
-    margin: auto;
-    color: #b5bebe;
-    box-shadow: 2px 5px;
-}
-
-#macarte{
-    height: 500px;
-    width: 500px;
-}
-
-/* .buttonToPdf{
-    color: #FFF;
-    border: 4px solid #000;
-    box-shadow:0px 0px 0px 1px #000 inset;
-    background-color: #000;
-    overflow: hidden;
-    position: relative;
-    transition: all 0.3s ease-in-out;
-} */
 
 .cardBorder{
     border-radius: 50%;
