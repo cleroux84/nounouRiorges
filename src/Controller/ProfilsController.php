@@ -15,16 +15,16 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Dompdf\Dompdf;
 use Dompdf\Options;
+use Symfony\Component\Validator\Constraints as Assert;
+
+     
 
 /**
  * @Route("/profils")
  */
 class ProfilsController extends AbstractController
 {
-
-    /**
-     * 
-     */
+   
     private function saveUploadFile(UploadedFile $file, string $directory, SluggerInterface $slugger)
     {
         $originalFilename = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME);
@@ -115,58 +115,36 @@ class ProfilsController extends AbstractController
  */
         // Instantiate Dompdf with our options
         $dompdf = new Dompdf($pdfOptions);
+       
         
         // Retrieve the HTML generated in our twig file
-        
         $html = $this->renderView('profils/pdf.html.twig', [
             'profil' => $profil,
             ]);
-            /* $html .= '<link rel="stylesheet" href="/css/bootstrap.min.css" />';
-            $html .= '<link href="./public/assets/css/index.css" rel="stylesheet" /> ';
-         */
+            
         // Load HTML to Dompdf
         $dompdf->loadHtml($html);
-
+       
         // (Optional) Setup the paper size and orientation 'portrait' or 'portrait'
         $dompdf->setPaper('A4', 'portrait');
-
+       
         // Render the HTML as PDF
         $dompdf->render();
-
         $dompdf->stream("mypdf.pdf", [
             "Attachment" => true
-        ]);
+            ]);
+            dd($dompdf);
     }
 
-    /**
+     /**
      * @Route("/{id}/edit", name="profils_edit", methods={"GET","POST"})
+     * 
      */
+
     public function edit(Request $request, Profils $profil, SluggerInterface $slugger): Response
-    {   
-        /* autoriser json */
-        $url="https://new.aol.com/productsweb/subflows/ScreenNameFlow/AjaxSNAction.do?s=username&f=firstname&l=lastname";
-        ini_set('user_agent', 'Mozilla/4.0 (compatible; MSIE 6.0; Windows NT
-        5.1; SV1; .NET CLR 1.0.3705; .NET CLR 1.1.4322)');
-        $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL,$url);
-        $result=curl_exec($ch);
-        print $result;
-
-        $codePostal = $profil->getCodePostal();
-        $ville = $profil->getVilleAdresse();
-        $adresse = $profil->getNumeroRueAdresse();
-        $json= file_get_contents('http://nominatim.openstreetmap.org/search?format=json&limit=1&q='.$adresse.'+'.$codePostal.'+'.$ville.'');
-        $obj = json_decode($json, true);
-        $latitude = $obj[0]['lat'];
-        $longitude = $obj[0]['lon'];
-
-
-
+    {    
         $form = $this->createForm(ProfilsType::class, $profil);
         $form->handleRequest($request);
-        $profil->setLatitude($latitude);
-        $profil->setLongitude($longitude);
-       /*  dd($profil); */
 
         if ($form->isSubmitted() && $form->isValid()) {
             /** @var UploadedFile $file */
@@ -215,7 +193,35 @@ class ProfilsController extends AbstractController
                 );
                 $profil->setPhoto4($newFilename);
             }
+            /* autoriser json */
+            $url="https://new.aol.com/productsweb/subflows/ScreenNameFlow/AjaxSNAction.do?s=username&f=firstname&l=lastname";
+            ini_set('user_agent', 'Mozilla/4.0 (compatible; MSIE 6.0; Windows NT
+            5.1; SV1; .NET CLR 1.0.3705; .NET CLR 1.1.4322)');
+            $ch = curl_init();
+            curl_setopt($ch, CURLOPT_URL,$url);
+            $result=curl_exec($ch);
+            print $result;
 
+            $codePostal = $profil->getCodePostal();
+            $ville = $profil->getVilleAdresse();
+            $adresse = $profil->getNumeroRueAdresse();
+           
+
+            if($codePostal && $adresse && $ville){
+               
+                        $json= file_get_contents('http://nominatim.openstreetmap.org/search?format=json&limit=1&q='.$adresse.'+'.$codePostal.'+'.$ville.'');
+                        $obj = json_decode($json, true);
+                        
+                        if($obj){
+                        $latitude = $obj[0]['lat'];
+                        $longitude = $obj[0]['lon'];
+
+                        $profil->setLatitude($latitude);
+                        $profil->setLongitude($longitude);
+                        }
+                    }
+
+            /*  dd($profil); */
 
             $this->getDoctrine()->getManager()->flush();
             /*  dd($profil);  */ 
@@ -242,8 +248,8 @@ class ProfilsController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($profil);
             $entityManager->flush();
+            $this->container->get('security.token_storage')->setToken(null);
         }
-
-        return $this->redirectToRoute('profils_index');
+              return $this->redirectToRoute('home');
     }
 }

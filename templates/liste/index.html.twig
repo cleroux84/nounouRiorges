@@ -14,7 +14,7 @@
 {% block body %}
 
 <div>  
-    <img class="animate__animated animate__backOutRight logoNounou" src="{{asset("assets/images/nounouLogo.png")}}" class="img-fluid" alt="Responsive image">
+    <img class="animate__animated animate__backOutRight logoNounou" src="{{asset("public/assets/images/nounouLogo.png")}}" class="img-fluid" alt="Responsive image">
 </div>
 <div class="container testA">
 <div>
@@ -64,9 +64,9 @@
                             </div>
                         
                          {% if not listeUser.photoIdentite %}
-                          <img src="../assets/images/profilBlanc.png" alt="" width="110" height="110" viewBox="0 0 250 250" aria-labelledby="title desc" class="center">
+                          <img src="./public/assets/images/profilBlanc.png" alt="" width="110" height="110" viewBox="0 0 250 250" aria-labelledby="title desc" class="center">
                           {% else %}
-                          <img src="{{ asset('uploads/' ~ listeUser.photoIdentite)}}" alt="" viewBox="0 0 250 250" aria-labelledby="title desc" class="center profilImageListe">
+                          <img src="{{ asset('public/uploads/' ~ listeUser.photoIdentite)}}" alt="" viewBox="0 0 250 250" aria-labelledby="title desc" class="center profilImageListe">
                           {% endif %}
                             <defs>
                                 <clipPath id="scene">

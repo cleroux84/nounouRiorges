@@ -1,5 +1,21 @@
+{# {{ form_start(form) }}
+{{ form_widget(form) }}
+   <div class="buttons">
+                    <div class="container">
+                        <button class="btn effect01">{{ button_label|default('Save') }}</button>
+                    </div>
+                </div>
+{{ form_end(form) }} #}
+
 <div class="container modifProfilContent">
     {{ form_start(form) }}
+     <div class="errorForm">
+        {{ form_errors(form.photoIdentite) }}
+        {{ form_errors(form.photo1) }}
+        {{ form_errors(form.photo2) }}
+        {{ form_errors(form.photo3) }}
+        {{ form_errors(form.photo4) }}
+    </div>
    <div class="form-row">
         <div class="form-group col-md-4">
             {{form_label(form.Nom, 'Votre nom', { 'attr': {'class': 'foo'} }) }}

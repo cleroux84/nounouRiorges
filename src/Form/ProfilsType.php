@@ -46,7 +46,8 @@ class ProfilsType extends AbstractType
                             'image/jpeg',
                             'image/png',
                         ],
-                        'mimeTypesMessage' => 'Merci d\'insérer un document format jpeg, jpg ou png',
+                        'maxSizeMessage' => 'Image trop volumineuse - maximum autorisé : 1Mo',
+                        'mimeTypesMessage' => 'Merci d\'insérer une photo au format jpeg, jpg ou png',
                     ])
                 ],
             ])  
@@ -62,7 +63,8 @@ class ProfilsType extends AbstractType
                             'image/jpeg',
                             'image/png',
                         ],
-                        'mimeTypesMessage' => 'Merci d\'insérer un document format jpeg, jpg ou png',
+                        'maxSizeMessage' => 'Image trop volumineuse - maximum autorisé : 1Mo',
+                        'mimeTypesMessage' => 'Merci d\'insérer une photo au format jpeg, jpg ou png',
                     ])
                 ],
             ])  
@@ -78,7 +80,8 @@ class ProfilsType extends AbstractType
                             'image/jpeg',
                             'image/png',
                         ],
-                        'mimeTypesMessage' => 'Merci d\'insérer un document format jpeg, jpg ou png',
+                        'maxSizeMessage' => 'Image trop volumineuse - maximum autorisé : 1Mo',
+                        'mimeTypesMessage' => 'Merci d\'insérer une photo au format jpeg, jpg ou png',
                     ])
                 ],
             ])  
@@ -95,15 +98,12 @@ class ProfilsType extends AbstractType
                             'image/jpeg',
                             'image/png',
                         ],
-                        'mimeTypesMessage' => 'Merci d\'insérer un document format jpeg, jpg ou png',
+                        'maxSizeMessage' => 'Image trop volumineuse - maximum autorisé : 1Mo',
+                        'mimeTypesMessage' => 'Merci d\'insérer une photo au format jpeg, jpg ou png',
                     ])
                 ],
             ])  
-            
-     
-
-
-                ->add('photoIdentite', FileType::class, [
+            ->add('photoIdentite', FileType::class, [
                 'label' => 'Choisissez votre photo de profil',
 
                 'mapped' => false,
@@ -115,7 +115,8 @@ class ProfilsType extends AbstractType
                             'image/jpeg',
                             'image/png',
                         ],
-                        'mimeTypesMessage' => 'Merci d\'insérer un document format jpeg, jpg ou png',
+                        'maxSizeMessage' => 'Image trop volumineuse - maximum autorisé : 1Mo',
+                        'mimeTypesMessage' => 'Merci d\'insérer une photo de profil au format jpeg, jpg ou png',
                     ])
                 ],
             ])  

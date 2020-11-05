@@ -12,8 +12,15 @@
 }
 
 body {
+    overflow-x: hidden !important;
     font-family:"OpenSansCondensed";
    }
+
+.errorForm ul li{
+    font-size: 20px;
+    font-style: italic ;
+    color: red;
+}
 
 /* boutons design */
 .buttons {
