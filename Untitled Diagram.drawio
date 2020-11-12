@@ -1,1 +1,44 @@
-<mxfile host="app.diagrams.net" modified="2020-11-12T13:38:35.828Z" agent="5.0 (X11)" version="13.9.7" etag="7d9a0v7j3rtxQKoocdJT" type="github"><diagram id="_xYzLV-qzLCmaxOTCEhG">UzV2zq1wL0osyPDNT0nNUTV2VTV2LsrPL4GwciucU3NyVI0MMlNUjV1UjYwMgFjVyA2HrCFY1qAgsSg1rwSLBiADYTaQg2Y1AA==</diagram></mxfile>
+<mxfile host="app.diagrams.net" modified="2020-11-12T13:55:26.198Z" agent="5.0 (X11)" etag="gFpn9EH8Q9UrldKa3eYv" version="13.9.7" type="github">
+  <diagram id="_xYzLV-qzLCmaxOTCEhG" name="Page-1">
+    <mxGraphModel dx="1021" dy="476" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="AC4WjDwptsBR9Er9wMvf-1" value="USER" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;" vertex="1" parent="1">
+          <mxGeometry x="190" y="200" width="120" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="AC4WjDwptsBR9Er9wMvf-2" value="PROFILS" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;" vertex="1" parent="1">
+          <mxGeometry x="480" y="100" width="180" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="AC4WjDwptsBR9Er9wMvf-3" value="&lt;div align=&quot;left&quot;&gt;id&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="190" y="220" width="120" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="AC4WjDwptsBR9Er9wMvf-4" value="&lt;div align=&quot;left&quot;&gt;email&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;mot de passe&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;" vertex="1" parent="1">
+          <mxGeometry x="190" y="240" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="AC4WjDwptsBR9Er9wMvf-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="AC4WjDwptsBR9Er9wMvf-4" target="AC4WjDwptsBR9Er9wMvf-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="AC4WjDwptsBR9Er9wMvf-7" value="&lt;div align=&quot;left&quot;&gt;id&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="480" y="120" width="180" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="AC4WjDwptsBR9Er9wMvf-8" value="user_id / &lt;i&gt;foreign key&lt;/i&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="480" y="140" width="180" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="AC4WjDwptsBR9Er9wMvf-9" value="&lt;div&gt;nom&lt;/div&gt;&lt;div&gt;prenom&lt;/div&gt;&lt;div&gt;email&lt;/div&gt;&lt;div&gt;numero_rue_adresse&lt;/div&gt;&lt;div&gt;code_postal&lt;/div&gt;&lt;div&gt;complement_adresse&lt;/div&gt;&lt;div&gt;ville&lt;/div&gt;&lt;div&gt;telephone&lt;/div&gt;&lt;div&gt;presentation_text&lt;/div&gt;&lt;div&gt;animaux&lt;/div&gt;&lt;div&gt;photo1&lt;/div&gt;&lt;div&gt;photo2&lt;/div&gt;&lt;div&gt;photo3&lt;/div&gt;&lt;div&gt;photo4&lt;/div&gt;&lt;div&gt;photo_profil&lt;/div&gt;&lt;div&gt;agrement_date&lt;/div&gt;&lt;div&gt;place_dispo&lt;/div&gt;&lt;div&gt;tarif_horaire&lt;/div&gt;&lt;div&gt;tarif_entretien&lt;/div&gt;&lt;div&gt;horaires&lt;/div&gt;&lt;div&gt;formation_premier_secours&lt;/div&gt;&lt;div&gt;bafa&lt;/div&gt;&lt;div&gt;formation_petite_enfance&lt;/div&gt;&lt;div&gt;permis_conduire&lt;/div&gt;&lt;div&gt;vehicule&lt;/div&gt;&lt;div&gt;langues_parlees&lt;/div&gt;&lt;div&gt;experience&lt;/div&gt;&lt;div&gt;latitude&lt;/div&gt;&lt;div&gt;longitude&lt;br&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;" vertex="1" parent="1">
+          <mxGeometry x="480" y="160" width="180" height="430" as="geometry" />
+        </mxCell>
+        <mxCell id="AC4WjDwptsBR9Er9wMvf-10" value="" style="endArrow=classic;html=1;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="320" y="230" as="sourcePoint" />
+            <mxPoint x="470" y="150" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="400" y="230" />
+              <mxPoint x="400" y="150" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
